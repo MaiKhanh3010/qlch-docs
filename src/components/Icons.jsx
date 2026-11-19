@@ -19,9 +19,6 @@ export const IconCopy = () => (
 export const IconLink = () => (
   <svg viewBox="0 0 24 24" width="14" height="14" {...S}><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" /></svg>
 );
-export const IconEdit = () => (
-  <svg viewBox="0 0 24 24" width="14" height="14" {...S}><path d="M4 20h4L19 9l-4-4L4 16z" /></svg>
-);
 export const IconList = () => (
   <svg viewBox="0 0 24 24" width="14" height="14" {...S}><path d="M4 6h16M4 12h10M4 18h13" /></svg>
 );

@@ -5,7 +5,7 @@ import { render, inline } from '../lib/markdown.js';
 import { copyText, fmtDate } from '../lib/ui.js';
 import Markdown from '../components/Markdown.jsx';
 import Toc from '../components/Toc.jsx';
-import { IconCopy, IconEdit, IconLink } from '../components/Icons.jsx';
+import { IconCopy, IconLink } from '../components/Icons.jsx';
 import NotFound from './NotFound.jsx';
 
 export default function DocPage({ slug, hash, onImage }) {
@@ -46,7 +46,6 @@ export default function DocPage({ slug, hash, onImage }) {
             <button className="chip-btn" onClick={() => copyText(`${location.origin}/docs/${page.slug}`, 'Đã sao chép liên kết')}>
               <IconLink />Sao chép liên kết
             </button>
-            <Link className="chip-btn" to={`/admin#edit=${page.slug}`}><IconEdit />Chỉnh sửa trang</Link>
           </div>
 
           <Markdown html={rendered.html} onImageClick={onImage} />

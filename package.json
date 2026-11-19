@@ -1,14 +1,13 @@
 {
   "name": "qlch-docs",
   "private": true,
-  "version": "1.0.0",
-  "description": "Website hướng dẫn sử dụng hệ thống Quản lý cuộc họp (QLCH) – React + Vite",
+  "version": "2.0.0",
+  "description": "Website hướng dẫn sử dụng hệ thống Quản lý cuộc họp (QLCH) & Điểm danh trên One Nova",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "start": "node server/index.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^19.2.0",

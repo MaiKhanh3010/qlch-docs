@@ -32,7 +32,7 @@ export function handleLinkClick(e) {
   const href = a.getAttribute('href');
   if (!href || href.startsWith('mailto:') || href.startsWith('tel:')) return false;
   const u = new URL(href, location.href);
-  if (u.origin !== location.origin || u.pathname.startsWith('/uploads/') || u.pathname.startsWith('/api/')) return false;
+  if (u.origin !== location.origin || u.pathname.startsWith('/uploads/')) return false;
   e.preventDefault();
   if (u.pathname === location.pathname && u.hash) {
     history.pushState(null, '', u.hash);

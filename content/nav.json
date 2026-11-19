@@ -1,0 +1,91 @@
+{
+  "sections": [
+    {
+      "id": "tong-quan",
+      "title": "Tổng quan hệ thống",
+      "description": "Giới thiệu hệ thống, các hệ thống kết nối và điều kiện đồng bộ cuộc họp.",
+      "pages": [
+        "gioi-thieu",
+        "cac-he-thong-ket-noi",
+        "dieu-kien-dong-bo-cuoc-hop"
+      ]
+    },
+    {
+      "id": "nguoi-moi-hop-quan-ly",
+      "title": "Người mời họp · Quản lý cuộc họp",
+      "description": "Quản lý thông tin cuộc họp, người được ủy quyền, người chủ trì và mã cuộc họp.",
+      "pages": [
+        "tong-quan-chuc-nang-nguoi-moi-hop",
+        "xem-danh-sach-cuoc-hop",
+        "xem-chi-tiet-cuoc-hop",
+        "yeu-cau-diem-danh-nfc",
+        "chi-dinh-nguoi-duoc-uy-quyen",
+        "doi-nguoi-phe-duyet-vang-mat",
+        "chon-nguoi-chu-tri-cuoc-hop",
+        "lay-ma-cuoc-hop-cap-nhat-agenda"
+      ]
+    },
+    {
+      "id": "nguoi-moi-hop-tham-gia",
+      "title": "Người mời họp · Theo dõi tham gia họp",
+      "description": "Thống kê điểm danh, thời gian họp thực tế, xác nhận tuân thủ và yêu cầu vắng mặt.",
+      "pages": [
+        "xem-thong-ke-tinh-trang-tham-gia",
+        "cap-nhat-thoi-gian-hop-thuc-te",
+        "xac-nhan-nguoi-tham-gia-da-vao-hop",
+        "yeu-cau-xac-nhan-tuan-thu",
+        "xac-nhan-da-pho-bien-lai-thong-tin",
+        "xem-lich-su-xac-nhan-tuan-thu",
+        "theo-doi-yeu-cau-vang-mat"
+      ]
+    },
+    {
+      "id": "nguoi-moi-hop-bien-ban",
+      "title": "Người mời họp · Biên bản họp",
+      "description": "Ghi nhận nội dung, trình ký, theo dõi phê duyệt và xuất bản Biên bản họp.",
+      "pages": [
+        "ghi-nhan-noi-dung-trao-doi",
+        "gui-duyet-bien-ban-hop",
+        "thu-hoi-trinh-ky-bien-ban",
+        "theo-doi-qua-trinh-ky",
+        "xuat-ban-gui-mail-bien-ban"
+      ]
+    },
+    {
+      "id": "nguoi-tham-gia",
+      "title": "Người tham gia · One Nova",
+      "description": "Theo dõi cuộc họp, báo vắng, điểm danh, báo rời họp sớm, xác nhận tuân thủ và xem Biên bản họp trên One Nova.",
+      "pages": [
+        "tong-quan-nguoi-tham-gia",
+        "nhan-thong-bao-cuoc-hop",
+        "xem-danh-sach-cuoc-hop-onenova",
+        "gui-yeu-cau-bao-vang",
+        "xem-ket-qua-phe-duyet-bao-vang",
+        "diem-danh-vao-hop",
+        "giai-trinh-vao-hop-tre",
+        "xac-nhan-tuan-thu-pho-bien-huong-dan",
+        "xac-nhan-da-duoc-pho-bien-lai",
+        "bao-roi-hop-som",
+        "xem-tai-lieu-da-xuat-ban"
+      ]
+    },
+    {
+      "id": "nguoi-chu-tri",
+      "title": "Người chủ trì",
+      "description": "Phê duyệt vắng mặt (qua Teams hoặc One Nova) và phê duyệt Biên bản họp.",
+      "pages": [
+        "phe-duyet-vang-mat-qua-teams",
+        "phe-duyet-vang-mat-qua-one-nova",
+        "phe-duyet-bien-ban-hop"
+      ]
+    },
+    {
+      "id": "ho-tro",
+      "title": "Hỗ trợ",
+      "description": "Câu hỏi thường gặp khi sử dụng QLCH và One Nova.",
+      "pages": [
+        "faq"
+      ]
+    }
+  ]
+}

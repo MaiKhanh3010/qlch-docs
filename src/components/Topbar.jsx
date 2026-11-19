@@ -18,7 +18,6 @@ export default function Topbar({ onMenu, onSearch }) {
       </button>
       <div className="topbar-right">
         <ThemeToggle />
-        <Link className="btn-ghost admin-link" to="/admin">Quản trị</Link>
       </div>
     </header>
   );
