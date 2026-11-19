@@ -1,0 +1,327 @@
+{
+  "site": {
+    "title": "Hướng dẫn sử dụng QLCH",
+    "tagline": "Tài liệu hướng dẫn · Cập nhật 03/11/2026",
+    "homeTitle": "Hướng dẫn sử dụng hệ thống Quản lý cuộc họp và Điểm danh trên One Nova",
+    "homeSubtitle": "Hướng dẫn chi tiết cho **Người mời họp**, **Người tham gia** và **Người chủ trì** – từ đồng bộ cuộc họp trên Outlook, điểm danh trên One Nova đến phê duyệt và xuất bản Biên bản họp.",
+    "accent": "#1f4fa3",
+    "logo": "/uploads/site/logo.png"
+  },
+  "sections": [
+    {
+      "id": "tong-quan",
+      "title": "Tổng quan hệ thống",
+      "description": "Giới thiệu hệ thống, các hệ thống kết nối và điều kiện đồng bộ cuộc họp.",
+      "pages": [
+        {
+          "slug": "gioi-thieu",
+          "title": "Giới thiệu hệ thống Quản lý cuộc họp",
+          "description": "Hệ thống hỗ trợ người dùng quản lý xuyên suốt vòng đời cuộc họp: từ khi cuộc họp được tạo trên Outlook đến khi Biên bản họp được xuất bản và theo dõi các công việc được chỉ định trong cuộc họp.",
+          "content": "## Hệ thống hỗ trợ những gì?\n\n:::columns\n### Công tác mời họp\n1. Đồng bộ cuộc họp từ Outlook.\n2. Quản lý mã cuộc họp/Agenda.\n3. Quản lý thành phần tham gia.\n4. Người dùng chọn người phê duyệt yêu cầu vắng mặt.\n+++\n### Công tác trong cuộc họp\n1. Theo dõi tình trạng tham gia họp.\n2. Theo dõi tình trạng vắng.\n3. Yêu cầu xác nhận tuân thủ nội dung phổ biến/hướng dẫn.\n4. Ghi nhận biên bản họp.\n+++\n### Sau khi cuộc họp kết thúc\n1. Trình ký biên bản họp.\n2. Đồng bộ công việc sang E-Office.\n3. Xuất bản Biên bản họp.\n4. Gửi Biên bản họp đến người tham gia.\n:::\n\n## Tổng quan giải pháp\n\nTừ đồng bộ cuộc họp đến theo dõi thực thi sau họp:\n\n![Sơ đồ tổng quan giải pháp (10 bước: đồng bộ Outlook → phát hành biên bản)](/uploads/gioi-thieu/man-hinh.png \"Sơ đồ tổng quan giải pháp (10 bước: đồng bộ Outlook → phát hành biên bản)\")\n\n## Tài liệu dành cho từng vai trò\n\n:::cards\n- [Người mời họp](/docs/tong-quan-chuc-nang-nguoi-moi-hop) Quản lý cuộc họp, mã Agenda, theo dõi tham gia và biên bản họp trên QLCH.\n- [Người tham gia](/docs/tong-quan-nguoi-tham-gia) Nhận thông báo, báo vắng, điểm danh, báo rời họp sớm và xác nhận tuân thủ trên One Nova.\n- [Người chủ trì](/docs/phe-duyet-bien-ban-hop) Phê duyệt vắng mặt và phê duyệt Biên bản họp.\n- [Câu hỏi thường gặp](/docs/faq) Giải đáp nhanh các tình huống hay gặp.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "cac-he-thong-ket-noi",
+          "title": "Các hệ thống kết nối",
+          "description": "QLCH phối hợp với các hệ thống liên quan để hỗ trợ trước, trong và sau cuộc họp: từ tiếp nhận thông tin, điểm danh, quản lý nội dung đến phát hành Biên bản và theo dõi công việc.",
+          "content": "| Tên hệ thống | Phạm vi |\n|---|---|\n| **Outlook** | Nguồn thông tin cuộc họp và cập nhật Event/Agenda. |\n| **QLCH – Quản lý cuộc họp** | Hệ thống trung tâm quản lý thông tin cuộc họp từ Outlook; nơi người dùng thực hiện nghiệp vụ quản lý cuộc họp. |\n| **One Nova** | Ứng dụng cho người tham gia theo dõi cuộc họp, báo vắng, điểm danh, xác nhận tuân thủ và xem Biên bản họp đã xuất bản. |\n| **Novagen** | Lưu trữ Record cuộc họp và lưu liên kết tại QLCH để tra cứu nhanh. |\n| **E-Office** | Tiếp nhận và quản lý các công việc được chỉ đạo trong cuộc họp. |\n\nXem thêm: [Điều kiện đồng bộ cuộc họp từ Outlook](/docs/dieu-kien-dong-bo-cuoc-hop)\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "dieu-kien-dong-bo-cuoc-hop",
+          "title": "Điều kiện đồng bộ cuộc họp từ Outlook",
+          "description": "Điều kiện để cuộc họp được đồng bộ từ Outlook về QLCH và hiển thị trên One Nova.",
+          "content": "Tài khoản người mời họp cần được khai báo trên hệ thống QLCH để hệ thống nhận diện các cuộc họp (Event) do người dùng tạo trên Outlook và đồng bộ về QLCH.\n\n## Luồng đồng bộ\n\n:::steps\n1. **Email người mời họp** đã được khai báo trên QLCH.\n2. **Người mời họp tạo cuộc họp** trên Outlook.\n3. **QLCH đồng bộ** thông tin cuộc họp.\n4. **Cuộc họp hiển thị** trên One Nova.\n5. **Người tham gia** theo dõi và điểm danh.\n:::\n\n:::note\nQLCH kiểm tra Outlook định kỳ **5 phút/lần**. Nếu cần đồng bộ ngay, xem [Câu hỏi thường gặp](/docs/faq#dong-bo-cuoc-hop-va-ma-cuoc-hop).\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "nguoi-moi-hop-quan-ly",
+      "title": "Người mời họp · Quản lý cuộc họp",
+      "description": "Quản lý thông tin cuộc họp, người được ủy quyền, người chủ trì và mã cuộc họp.",
+      "pages": [
+        {
+          "slug": "tong-quan-chuc-nang-nguoi-moi-hop",
+          "title": "Tổng quan chức năng dành cho người mời họp",
+          "description": "Các nhóm chức năng chính người mời họp sử dụng trên hệ thống QLCH.",
+          "content": ":::columns\n### Quản lý cuộc họp\n1. Nhận thông tin từ Outlook.\n2. Chỉ định người phê duyệt vắng mặt.\n3. Chỉ định người chủ trì.\n4. Theo dõi danh sách người được mời.\n+++\n### Quản lý mã cuộc họp\n1. Lấy mã Agenda cuộc họp.\n2. Tạo nhanh mã Agenda.\n3. Cập nhật mã vào biểu mẫu nội dung họp.\n4. Gửi Agenda qua Outlook.\n:::\n\n:::columns\n### Theo dõi tham gia họp\n1. Tình trạng tham gia của người được mời.\n2. Người chưa vào họp.\n3. Người đi họp trễ.\n4. Người đã báo vắng.\n5. Người báo rời họp sớm.\n+++\n### Quản lý công việc\n1. Ghi nhận công việc được chỉ đạo.\n2. Xuất tài liệu biên bản họp.\n3. Trình ký biên bản họp.\n4. Xuất bản biên bản tới người tham gia.\n:::\n\n## Bắt đầu nhanh\n\n:::cards\n- [Xem danh sách cuộc họp](/docs/xem-danh-sach-cuoc-hop) Tra cứu các cuộc họp đồng bộ từ Outlook.\n- [Chỉ định người được ủy quyền](/docs/chi-dinh-nguoi-duoc-uy-quyen) Người duyệt vắng mặt, duyệt biên bản.\n- [Lấy mã cuộc họp](/docs/lay-ma-cuoc-hop-cap-nhat-agenda) Lấy mã để cập nhật vào file Agenda.\n- [Thống kê tình trạng tham gia](/docs/xem-thong-ke-tinh-trang-tham-gia) Nắm nhanh số người đúng giờ, trễ, vắng.\n- [Ghi nhận biên bản họp](/docs/ghi-nhan-noi-dung-trao-doi) Nhập nội dung, kết luận và công việc được chỉ đạo.\n- [Xuất bản & gửi mail Biên bản](/docs/xuat-ban-gui-mail-bien-ban) Gửi biên bản đến người tham gia.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "xem-danh-sach-cuoc-hop",
+          "title": "Xem danh sách cuộc họp",
+          "description": "Hiển thị tập trung các cuộc họp đồng bộ từ Outlook, giúp tra cứu thông tin, theo dõi trạng thái cuộc họp và tình trạng tham gia của người được mời.",
+          "content": "![Màn hình danh sách cuộc họp](/uploads/xem-danh-sach-cuoc-hop/man-hinh.png \"Màn hình danh sách cuộc họp\")\n\n## Các bước thực hiện\n\n:::steps\n1. Chọn khoảng thời gian để xem các cuộc họp.\n2. Tìm kiếm theo thông tin cuộc họp.\n3. Theo dõi trạng thái cuộc họp.\n4. Chọn cuộc họp để xem chi tiết và thực hiện nghiệp vụ liên quan.\n:::\n\n:::note\nQLCH tự động đồng bộ cuộc họp từ Outlook để hiển thị và cập nhật dữ liệu. Hệ thống kiểm tra Outlook định kỳ **5 phút/lần**.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "xem-chi-tiet-cuoc-hop",
+          "title": "Xem chi tiết cuộc họp",
+          "description": "Xem và quản lý toàn bộ thông tin liên quan đến một cuộc họp trên một màn hình tập trung.",
+          "content": "![Màn hình chi tiết cuộc họp](/uploads/xem-chi-tiet-cuoc-hop/man-hinh.png \"Màn hình chi tiết cuộc họp\")\n\n## Các thông tin chính\n\n- Thông tin cuộc họp\n- Theo dõi tình trạng tham gia\n- Theo dõi tình trạng xác nhận tuân thủ\n- Theo dõi các trường hợp vi phạm\n- Quản lý các file tài liệu Biên bản họp\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "yeu-cau-diem-danh-nfc",
+          "title": "Yêu cầu điểm danh bằng NFC",
+          "description": "Kích hoạt điểm danh bằng NFC để kiểm soát vị trí, đảm bảo người tham gia điểm danh trực tiếp tại phòng họp được cấu hình NFC.",
+          "content": "![Công tắc “Điểm danh bằng NFC”](/uploads/yeu-cau-diem-danh-nfc/man-hinh.png \"Công tắc “Điểm danh bằng NFC”\")\n\n## Các bước thực hiện\n\n:::steps\n1. Bật tùy chọn **“Yêu cầu điểm danh bằng NFC”**.\n2. Người tham gia chọn hình thức **“Trực tiếp (Offline)”** trên One Nova.\n3. Người tham gia quét NFC tại phòng họp để hoàn tất điểm danh.\n:::\n\n:::note\nChỉ bật được khi phòng họp đã được khai báo NFC trên hệ thống.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "chi-dinh-nguoi-duoc-uy-quyen",
+          "title": "Chỉ định người được ủy quyền",
+          "description": "Chọn người có thẩm quyền tiếp nhận và xử lý yêu cầu báo vắng, phê duyệt biên bản họp theo chỉ định của người chủ trì.",
+          "content": "![Trường người được ủy quyền và popup chọn người](/uploads/chi-dinh-nguoi-duoc-uy-quyen/man-hinh.png \"Trường người được ủy quyền và popup chọn người\")\n\n## Các bước thực hiện\n\n:::steps\n1. Mở **Chi tiết cuộc họp**.\n2. Tại trường **“Người được ủy quyền”**.\n3. Chọn người được ủy quyền.\n4. Lưu thông tin.\n:::\n\n## Kết quả\n\nNgười được ủy quyền sẽ thực hiện các công việc:\n\n- [Phê duyệt vắng mặt](/docs/phe-duyet-vang-mat-qua-teams) khi người tham gia gửi báo vắng.\n- [Duyệt biên bản họp](/docs/phe-duyet-bien-ban-hop).\n- Xác nhận công việc chỉ định trong cuộc họp đã hoàn thành trên E-Office.\n\n:::tip\nĐối với cuộc họp thông thường, “Người chủ trì” và “Người phê duyệt vắng mặt” là cùng một người. Xem thêm [Câu hỏi thường gặp](/docs/faq#phe-duyet-vang-mat).\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "doi-nguoi-phe-duyet-vang-mat",
+          "title": "Đổi người phê duyệt vắng mặt",
+          "description": "Thay đổi người phê duyệt cho từng yêu cầu báo vắng khi cần chuyển sang người có thẩm quyền phù hợp.",
+          "content": "![Đổi người duyệt cho yêu cầu vắng mặt](/uploads/doi-nguoi-phe-duyet-vang-mat/man-hinh.png \"Đổi người duyệt cho yêu cầu vắng mặt\")\n\n## Các bước thực hiện\n\n:::steps\n1. Tại danh sách **“Yêu cầu vắng mặt”**, chọn yêu cầu cần thay đổi.\n2. Chọn **“Đổi người duyệt”**.\n3. Chọn người phê duyệt mới và xác nhận.\n:::\n\n:::success\nYêu cầu chuyển đến người duyệt mới; các yêu cầu khác không bị ảnh hưởng.\n:::\n\n:::note\nChỉ đổi được khi yêu cầu ở trạng thái **“Chờ phê duyệt”** hoặc **“Chờ chỉ định người duyệt”**.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "chon-nguoi-chu-tri-cuoc-hop",
+          "title": "Chọn người chủ trì cuộc họp",
+          "description": "Chỉ định người chủ trì cho từng cuộc họp, làm cơ sở ghi nhận thông tin chủ trì và thực hiện nghiệp vụ sau cuộc họp.",
+          "content": "![Chọn người chủ trì trong Chi tiết cuộc họp](/uploads/chon-nguoi-chu-tri-cuoc-hop/man-hinh.png \"Chọn người chủ trì trong Chi tiết cuộc họp\")\n\n## Các bước thực hiện\n\n:::steps\n1. Mở **Chi tiết cuộc họp**.\n2. Tại trường **“Chủ trì cuộc họp”**.\n3. Chọn người chủ trì.\n4. Lưu thông tin.\n:::\n\n## Kết quả\n\n- Tự động điền thông tin chủ trì khi xuất Biên bản theo template.\n- Xác định người theo dõi và xác nhận hoàn thành công việc trên E-Office.\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "lay-ma-cuoc-hop-cap-nhat-agenda",
+          "title": "Lấy mã cuộc họp để cập nhật Agenda",
+          "description": "Lấy mã cuộc họp trên QLCH để cập nhật vào file Agenda trước khi gửi đến người tham gia.",
+          "content": "![Trường Mã cuộc họp trong Chi tiết cuộc họp](/uploads/lay-ma-cuoc-hop-cap-nhat-agenda/man-hinh.png \"Trường Mã cuộc họp trong Chi tiết cuộc họp\")\n\n## Cách thực hiện\n\n:::steps\n1. Mở **Chi tiết cuộc họp**.\n2. Kiểm tra trường **“Mã cuộc họp”**.\n3. Sao chép mã cuộc họp.\n4. Cập nhật mã vào file Agenda.\n5. Vào Outlook gửi lại Agenda.\n:::\n\n## Quy tắc tạo mã cuộc họp\n\n| Loại cuộc họp | Thời điểm tạo mã |\n|---|---|\n| Họp phát sinh / Hội ý nhanh | Tự tạo mã ngay khi đồng bộ. |\n| Họp định kỳ | Tự tạo mã **trước 24 giờ**. |\n\n:::tip Cần mã sớm hơn?\nBấm **“Tạo mã cuộc họp”**.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "nguoi-moi-hop-tham-gia",
+      "title": "Người mời họp · Theo dõi tham gia họp",
+      "description": "Thống kê điểm danh, thời gian họp thực tế, xác nhận tuân thủ và yêu cầu vắng mặt.",
+      "pages": [
+        {
+          "slug": "xem-thong-ke-tinh-trang-tham-gia",
+          "title": "Xem thống kê tình trạng tham gia họp",
+          "description": "Theo dõi tổng quan tình trạng tham gia: số người đã tham dự, chưa tham dự, vào trễ và báo vắng.",
+          "content": "![Thống kê tình trạng tham gia họp](/uploads/xem-thong-ke-tinh-trang-tham-gia/man-hinh.png \"Thống kê tình trạng tham gia họp\")\n\n## Thông tin thống kê\n\n| Chỉ số | Ý nghĩa |\n|---|---|\n| **Đúng giờ** | Đã điểm danh đúng thời gian quy định. |\n| **Vào trễ** | Điểm danh sau thời gian quy định. |\n| **Vắng có phép** | Yêu cầu vắng đã được phê duyệt. |\n| **Chờ duyệt vắng** | Đã gửi yêu cầu nhưng chưa xử lý. |\n| **Chưa vào** | Chưa thực hiện điểm danh. |\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "cap-nhat-thoi-gian-hop-thuc-te",
+          "title": "Cập nhật thời gian họp thực tế",
+          "description": "Cập nhật thời gian bắt đầu/kết thúc thực tế để hệ thống đánh giá lại tình trạng tham gia theo thời gian thực tế.",
+          "content": "![Nhập thời gian bắt đầu/kết thúc thực tế](/uploads/cap-nhat-thoi-gian-hop-thuc-te/man-hinh.png \"Nhập thời gian bắt đầu/kết thúc thực tế\")\n\n## Các bước thực hiện\n\n:::steps\n1. Truy cập màn hình **Chi tiết cuộc họp**.\n2. Nhập **Thời gian bắt đầu thực tế** và **Thời gian kết thúc thực tế**.\n3. Hệ thống đánh giá lại tình trạng tham gia của người tham gia.\n:::\n\n:::note\nKhi họp bắt đầu trễ so với lịch, người điểm danh theo giờ dự kiến có thể bị ghi nhận **Vào trễ**; sau khi cập nhật giờ thực tế, hệ thống sẽ xét lại.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "xac-nhan-nguoi-tham-gia-da-vao-hop",
+          "title": "Xác nhận người tham gia đã vào họp",
+          "description": "Chủ động xác nhận người tham gia đã có mặt để cập nhật chính xác tình trạng tham gia trên hệ thống.",
+          "content": "![Xác nhận đã tham gia từ tab Điểm danh](/uploads/xac-nhan-nguoi-tham-gia-da-vao-hop/man-hinh.png \"Xác nhận đã tham gia từ tab Điểm danh\")\n\n## Các bước thực hiện\n\n:::steps\n1. Truy cập **Chi tiết cuộc họp**, chọn tab **Điểm danh**.\n2. Nhấp chuột phải vào người tham gia cần xác nhận.\n3. Chọn **“Xác nhận đã tham gia”**.\n:::\n\n:::success\nTrạng thái của người được xác nhận chuyển thành **“Đã vào họp”**.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "yeu-cau-xac-nhan-tuan-thu",
+          "title": "Yêu cầu xác nhận tuân thủ nội dung họp",
+          "description": "Bật yêu cầu người tham gia xác nhận tuân thủ nội dung được phổ biến trong cuộc họp trên One Nova.",
+          "content": "![Bật yêu cầu xác nhận tuân thủ nội dung họp](/uploads/yeu-cau-xac-nhan-tuan-thu/man-hinh.png \"Bật yêu cầu xác nhận tuân thủ nội dung họp\")\n\n## Các bước thực hiện\n\n:::steps\n1. Mở **Chi tiết cuộc họp**.\n2. Tại mục **“Yêu cầu xác nhận tuân thủ nội dung họp”**.\n3. Bật công tắc yêu cầu xác nhận.\n4. Hệ thống kích hoạt yêu cầu cho người tham gia.\n:::\n\n## Kết quả\n\n- Hệ thống ghi nhận tình trạng xác nhận từng người.\n- Người mời họp theo dõi trên QLCH.\n- Người chưa xác nhận được ghi nhận để xử lý theo quy định.\n\n:::warning\nChỉ bật được **một lần**, không bật lại sau khi đã đóng. Khi đóng yêu cầu, người chưa phản hồi bị ghi nhận **vi phạm xác nhận tuân thủ**.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "xac-nhan-da-pho-bien-lai-thong-tin",
+          "title": "Xác nhận đã phổ biến lại thông tin",
+          "description": "Xác nhận đã phổ biến lại nội dung cho người tham gia phản hồi “Chưa rõ, cần phổ biến lại”.",
+          "content": "![Xác nhận đã phổ biến lại trong tab Điểm danh](/uploads/xac-nhan-da-pho-bien-lai-thong-tin/man-hinh.png \"Xác nhận đã phổ biến lại trong tab Điểm danh\")\n\n## Các bước thực hiện\n\n:::steps\n1. Mở tab **“Điểm danh”**.\n2. Tìm người có trạng thái **“Cần phổ biến lại”**.\n3. Phổ biến lại thông tin cho người tham gia.\n4. Chọn **“Xác nhận đã phổ biến lại”**.\n:::\n\n## Kết quả\n\nHệ thống gắn tag **“Đã phổ biến lại”**; người tham gia vào One Nova bấm **“Xác nhận đã hiểu”** thì trạng thái mới được cập nhật.\n\n:::note\n“Đã phổ biến lại” là xác nhận của người mời họp, **không thay thế** việc người tham gia xác nhận đã hiểu. Xem [Xác nhận đã được phổ biến lại](/docs/xac-nhan-da-duoc-pho-bien-lai) (phía người tham gia).\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "xem-lich-su-xac-nhan-tuan-thu",
+          "title": "Xem lịch sử xác nhận tuân thủ",
+          "description": "Xem lịch sử xác nhận tuân thủ của từng người, gồm các lần khởi tạo, phản hồi và phổ biến lại thông tin.",
+          "content": "![Lịch sử xác nhận tuân thủ của người tham gia](/uploads/xem-lich-su-xac-nhan-tuan-thu/man-hinh.png \"Lịch sử xác nhận tuân thủ của người tham gia\")\n\n## Các bước thực hiện\n\n:::steps\n1. Mở tab **“Điểm danh”**.\n2. Tại người cần tra cứu, chọn biểu tượng thao tác.\n3. Chọn **“Xem lịch sử”**.\n4. Hệ thống hiển thị lịch sử xác nhận tuân thủ.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "theo-doi-yeu-cau-vang-mat",
+          "title": "Theo dõi danh sách yêu cầu vắng mặt",
+          "description": "Theo dõi yêu cầu vắng mặt của người tham gia, người phê duyệt và kết quả xử lý từng yêu cầu.",
+          "content": "![Tab Yêu cầu vắng mặt](/uploads/theo-doi-yeu-cau-vang-mat/man-hinh.png \"Tab Yêu cầu vắng mặt\")\n\n## Các bước thực hiện\n\n:::steps\n1. Mở **Chi tiết cuộc họp**, chọn tab **“Yêu cầu vắng mặt”**.\n2. Tra cứu danh sách và trạng thái yêu cầu.\n3. Dùng tìm kiếm hoặc bộ lọc trạng thái khi cần.\n:::\n\n## Kết quả\n\nHiển thị: người yêu cầu, lý do, người phê duyệt, thời gian gửi/duyệt, ghi chú, trạng thái (**Chờ phê duyệt** / **Đã duyệt** / **Từ chối**).\n\n:::note\nCó thể [đổi người phê duyệt](/docs/doi-nguoi-phe-duyet-vang-mat) với yêu cầu “Chờ phê duyệt” hoặc “Chờ chỉ định người duyệt”; yêu cầu sẽ gửi lại đến người duyệt mới.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "nguoi-moi-hop-bien-ban",
+      "title": "Người mời họp · Biên bản họp",
+      "description": "Ghi nhận nội dung, trình ký, theo dõi phê duyệt và xuất bản Biên bản họp.",
+      "pages": [
+        {
+          "slug": "ghi-nhan-noi-dung-trao-doi",
+          "title": "Ghi nhận nội dung trao đổi trong cuộc họp",
+          "description": "Ghi nhận nội dung trao đổi, kết luận và công việc được chỉ đạo trực tiếp trên tab “Biên bản họp”. Mỗi dòng công việc tương ứng một Task được đồng bộ lên E-Office.",
+          "content": "![Tab Biên bản họp](/uploads/ghi-nhan-noi-dung-trao-doi/man-hinh.png \"Tab Biên bản họp\")\n\n## Các bước thực hiện\n\n:::steps\n1. Mở tab **“Biên bản họp”**.\n2. Nhập nội dung trao đổi/kết luận và thông tin công việc.\n3. Nhập các thông tin E-Office nếu có.\n4. Bấm **Lưu** để lưu lại các nội dung đã nhập.\n:::\n\n:::note\nBấm **Lưu** chỉ lưu nội dung; công việc được đồng bộ lên E-Office **sau khi Biên bản họp được duyệt**. Tiếp theo: [Gửi duyệt biên bản họp](/docs/gui-duyet-bien-ban-hop).\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "gui-duyet-bien-ban-hop",
+          "title": "Gửi duyệt biên bản họp",
+          "description": "Gửi biên bản họp để phê duyệt sau khi nhập xong nội dung thảo luận, khó khăn, giải pháp, chỉ đạo và công việc được giao.",
+          "content": "![Nút Gửi phê duyệt biên bản họp](/uploads/gui-duyet-bien-ban-hop/man-hinh.png \"Nút Gửi phê duyệt biên bản họp\")\n\n## Các bước thực hiện\n\n:::steps\n1. Truy cập **Chi tiết cuộc họp**, chọn tab **Biên bản họp**.\n2. Hoàn tất thông tin công việc: nội dung, hiện trạng/khó khăn, giải pháp, chỉ đạo, người chịu trách nhiệm, ngày hoàn thành.\n3. Kiểm tra lại nội dung và nhấn **“Gửi phê duyệt”**.\n:::\n\n:::success\nBiên bản vào quy trình phê duyệt để người có thẩm quyền xem xét.\n:::\n\n:::note\n- Sau khi Biên bản họp được phê duyệt xong, các công việc sẽ được đồng bộ lên **E-Office**.\n- Hệ thống tự động sinh file biên bản họp định dạng **PDF**, đưa vào mục **“Tài liệu liên quan”** và chờ [xuất bản](/docs/xuat-ban-gui-mail-bien-ban).\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "thu-hoi-trinh-ky-bien-ban",
+          "title": "Thu hồi trình ký biên bản họp",
+          "description": "Thu hồi biên bản đã gửi trình ký để chỉnh sửa, bổ sung nội dung khi cần.",
+          "content": "![Nút “Thu hồi trình ký”](/uploads/thu-hoi-trinh-ky-bien-ban/man-hinh.png \"Nút “Thu hồi trình ký”\")\n\n## Các bước thực hiện\n\n:::steps\n1. Truy cập **Chi tiết cuộc họp**, chọn tab **Biên bản họp**.\n2. Nhấn **“Thu hồi trình ký”**.\n3. Chỉnh sửa, bổ sung thông tin theo nhu cầu.\n:::\n\n:::success\nBiên bản được thu hồi khỏi quy trình trình ký để người mời họp tiếp tục chỉnh sửa.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "theo-doi-qua-trinh-ky",
+          "title": "Theo dõi quá trình ký",
+          "description": "Theo dõi lịch sử trình ký và phê duyệt biên bản: thời gian, người thực hiện, vai trò, hành động, ghi chú/lý do.",
+          "content": "![Popup Quá trình ký & Phê duyệt](/uploads/theo-doi-qua-trinh-ky/man-hinh.png \"Popup Quá trình ký & Phê duyệt\")\n\n## Các bước thực hiện\n\n:::steps\n1. Truy cập **Chi tiết cuộc họp**, chọn tab **Biên bản họp**.\n2. Nhấn **“Quá trình ký”**.\n3. Theo dõi lịch sử xử lý trong cửa sổ hiển thị.\n:::\n\n:::success\nNắm được trạng thái phê duyệt và lý do từ chối để thực hiện bước tiếp theo.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "xuat-ban-gui-mail-bien-ban",
+          "title": "Xuất bản & gửi mail Biên bản họp",
+          "description": "Gửi mail và xuất bản biên bản họp trên One Nova.",
+          "content": "![Chọn file và Xuất bản & gửi mail](/uploads/xuat-ban-gui-mail-bien-ban/man-hinh.png \"Chọn file và Xuất bản & gửi mail\")\n\n## Các bước thực hiện\n\n:::steps\n1. Chọn file Biên bản đã trình ký (hệ thống tự động tạo file sau khi Biên bản họp được duyệt).\n2. Tải lên hoặc chọn thêm các file cần xuất bản & gửi mail.\n3. Chọn **“Xuất bản & gửi mail”**.\n4. Hệ thống xuất bản file và gửi mail đến người tham gia.\n:::\n\n## Kết quả\n\n- Mail Biên bản họp gửi đến người được mời.\n- File PDF xuất bản vào cuộc họp tương ứng trên One Nova để [xem](/docs/xem-tai-lieu-da-xuat-ban).\n\n:::note\nChỉ hỗ trợ file **PDF**. Có thể chọn nhiều file; hệ thống gửi **01 email duy nhất** đính kèm toàn bộ file đã chọn.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "nguoi-tham-gia",
+      "title": "Người tham gia · One Nova",
+      "description": "Theo dõi cuộc họp, báo vắng, điểm danh, báo rời họp sớm, xác nhận tuân thủ và xem Biên bản họp trên One Nova.",
+      "pages": [
+        {
+          "slug": "tong-quan-nguoi-tham-gia",
+          "title": "Tổng quan chức năng dành cho người tham gia",
+          "description": "One Nova hỗ trợ người tham gia trước, trong và sau cuộc họp.",
+          "content": ":::columns\n### Trước cuộc họp\n1. Xem thông báo cuộc họp.\n2. Theo dõi thay đổi cuộc họp.\n3. Nhắc họp.\n4. Thông báo vắng họp.\n+++\n### Trong khi cuộc họp diễn ra\n1. Điểm danh vào họp.\n2. Giải trình vào trễ.\n+++\n### Sau khi cuộc họp kết thúc\n1. Xem lại Biên bản họp.\n:::\n\n## Bắt đầu nhanh\n\n:::cards\n- [Nhận thông báo cuộc họp](/docs/nhan-thong-bao-cuoc-hop) Cuộc họp mới, cập nhật, huỷ và nhắc họp.\n- [Gửi yêu cầu báo vắng](/docs/gui-yeu-cau-bao-vang) Xin phép vắng khi không thể tham dự.\n- [Điểm danh vào họp](/docs/diem-danh-vao-hop) Điểm danh bằng xác thực khuôn mặt.\n- [Báo rời họp sớm](/docs/bao-roi-hop-som) Thông báo rời họp trước giờ kết thúc kèm lý do.\n- [Xem tài liệu đã xuất bản](/docs/xem-tai-lieu-da-xuat-ban) Xem lại Biên bản họp sau cuộc họp.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "nhan-thong-bao-cuoc-hop",
+          "title": "Nhận thông báo cuộc họp trên One Nova",
+          "description": "Nhận thông báo về các cuộc họp được mời ngay trên One Nova để kịp thời nắm lịch họp và thay đổi liên quan.",
+          "content": "![Màn hình Thông báo trên One Nova](/uploads/nhan-thong-bao-cuoc-hop/man-hinh.png \"Màn hình Thông báo trên One Nova\")\n\n## Nội dung thông báo\n\n| Loại thông báo | Khi nào nhận được |\n|---|---|\n| **Cuộc họp mới** | Khi được thêm vào một cuộc họp. |\n| **Cập nhật cuộc họp** | Khi thông tin có thay đổi. |\n| **Hủy cuộc họp** | Khi cuộc họp bị hủy. |\n| **Nhắc họp** | Trước thời gian diễn ra cuộc họp. |\n\n## Kết quả\n\nTruy cập mục **Thông báo** để xem tin mới nhất; chọn thông báo để vào nhanh cuộc họp tương ứng.\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "xem-danh-sach-cuoc-hop-onenova",
+          "title": "Xem danh sách cuộc họp trên One Nova",
+          "description": "Theo dõi toàn bộ cuộc họp được mời: đang diễn ra, sắp diễn ra và đã kết thúc.",
+          "content": "![Lịch họp trên One Nova](/uploads/xem-danh-sach-cuoc-hop-onenova/man-hinh.png \"Lịch họp trên One Nova\")\n\n## Các bước thực hiện\n\n:::steps\n1. Tại màn hình One Nova, chọn **“Lịch họp”** trên menu.\n2. Hệ thống hiển thị danh sách các cuộc họp được mời, phân loại **Đang diễn ra** / **Sắp diễn ra** / **Đã kết thúc**.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "gui-yeu-cau-bao-vang",
+          "title": "Gửi yêu cầu báo vắng",
+          "description": "Chủ động gửi yêu cầu xin phép vắng họp trên One Nova khi không thể tham dự.",
+          "content": "![Gửi yêu cầu báo vắng trên One Nova](/uploads/gui-yeu-cau-bao-vang/man-hinh.png \"Gửi yêu cầu báo vắng trên One Nova\")\n\n## Các bước thực hiện\n\n:::steps\n1. Tại **Chi tiết cuộc họp**.\n2. Chọn **“Báo vắng”**.\n3. Đính kèm hình ảnh/tài liệu minh chứng (nếu cần).\n4. Chọn **“Xác nhận”** để gửi yêu cầu.\n:::\n\n## Kết quả\n\nYêu cầu chuyển đến Người phê duyệt vắng mặt; người tham gia nhận thông báo **“Yêu cầu báo vắng đã gửi”** và theo dõi trạng thái **“Chờ duyệt báo vắng”**.\n\n:::note\nGửi yêu cầu báo vắng **trước thời gian bắt đầu cuộc họp** để được xử lý theo quy trình phê duyệt.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "xem-ket-qua-phe-duyet-bao-vang",
+          "title": "Xem kết quả phê duyệt báo vắng",
+          "description": "Xem kết quả xử lý yêu cầu báo vắng ngay tại Chi tiết cuộc họp trên One Nova.",
+          "content": "![Các trạng thái kết quả báo vắng](/uploads/xem-ket-qua-phe-duyet-bao-vang/man-hinh.png \"Các trạng thái kết quả báo vắng\")\n\n## Các trạng thái hiển thị\n\n| Trạng thái | Ý nghĩa |\n|---|---|\n| **Vắng mặt có phép** | Yêu cầu được chấp thuận. |\n| **Yêu cầu báo vắng bị từ chối** | Kèm lý do từ chối của người phê duyệt. |\n| **Chờ duyệt báo vắng** | Yêu cầu chưa được xử lý. |\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "diem-danh-vao-hop",
+          "title": "Điểm danh vào họp",
+          "description": "Điểm danh cuộc họp trên One Nova bằng xác thực khuôn mặt.",
+          "content": "![Các bước điểm danh trên One Nova](/uploads/diem-danh-vao-hop/man-hinh.png \"Các bước điểm danh trên One Nova\")\n\n## Các bước thực hiện\n\n:::steps\n1. Truy cập **Chi tiết cuộc họp** và bấm **“Điểm danh”**.\n2. Chọn hình thức tham gia (**Online**/**Offline**).\n3. Thực hiện quét **Face ID**.\n:::\n\n:::success\nHệ thống ghi nhận thời gian điểm danh thực tế và cập nhật trạng thái tham gia.\n:::\n\n:::tip\nNếu cuộc họp yêu cầu [điểm danh bằng NFC](/docs/yeu-cau-diem-danh-nfc), chọn hình thức **“Trực tiếp (Offline)”** và quét NFC tại phòng họp.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "giai-trinh-vao-hop-tre",
+          "title": "Giải trình vào họp trễ",
+          "description": "Giải trình lý do vào họp trễ khi thời gian điểm danh vượt quá thời gian quy định.",
+          "content": "![Popup Quá hạn điểm danh và giải trình](/uploads/giai-trinh-vao-hop-tre/man-hinh.png \"Popup Quá hạn điểm danh và giải trình\")\n\n## Các bước thực hiện\n\n:::steps\n1. Khi điểm danh trễ, hệ thống hiển thị popup **“Quá hạn điểm danh”** và yêu cầu giải trình.\n2. Chọn lý do có sẵn hoặc điền lý do khác.\n3. Chọn **“Giải trình”**.\n:::\n\n:::success\nHệ thống ghi nhận thông tin để người mời họp theo dõi.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "xac-nhan-tuan-thu-pho-bien-huong-dan",
+          "title": "Xác nhận tuân thủ phổ biến hướng dẫn",
+          "description": "Xác nhận đã hiểu và tuân thủ nội dung/hướng dẫn được phổ biến, sau khi người mời họp phổ biến và gửi yêu cầu xác nhận.",
+          "content": "![Xác nhận tuân thủ trên One Nova](/uploads/xac-nhan-tuan-thu-pho-bien-huong-dan/man-hinh.png \"Xác nhận tuân thủ trên One Nova\")\n\n## Các bước thực hiện\n\n:::steps\n1. Tại **Chi tiết cuộc họp**, hệ thống hiển thị **“Chưa xác nhận tuân thủ”** và nút **“Xác nhận ngay!”**.\n2. Nhấn **“Xác nhận ngay!”**.\n3. Chọn **“Đã hiểu và xác nhận”** hoặc **“Chưa nắm rõ, cần phổ biến lại”**.\n:::\n\n## Kết quả\n\n| Lựa chọn | Kết quả |\n|---|---|\n| **Đã hiểu và xác nhận** | Trạng thái chuyển thành “Đã xác nhận”; lưu thời gian xác nhận để theo dõi/lịch sử. |\n| **Chưa nắm rõ, cần phổ biến lại** | Trạng thái chuyển thành “Chưa rõ, cần phổ biến lại”, chờ [xác nhận lại](/docs/xac-nhan-da-duoc-pho-bien-lai). |\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "xac-nhan-da-duoc-pho-bien-lai",
+          "title": "Xác nhận đã được phổ biến lại",
+          "description": "Xác nhận đã được người mời họp phổ biến lại nội dung chưa nắm rõ, sau khi trước đó chọn “Chưa nắm rõ, cần phổ biến lại”.",
+          "content": "![Cần phổ biến lại](/uploads/xac-nhan-da-duoc-pho-bien-lai/man-hinh.png \"Cần phổ biến lại\")\n\n## Các bước thực hiện\n\n:::steps\n1. Nhấn **“Đã được phổ biến lại”**.\n2. Popup xác nhận hiển thị → nhấn **“Xác nhận”**.\n:::\n\n:::success\nTrạng thái chuyển thành **“Đã xác nhận”**; lưu thời gian xác nhận để theo dõi/lịch sử.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "bao-roi-hop-som",
+          "title": "Báo rời họp sớm",
+          "description": "Cho phép người tham gia thông báo việc rời khỏi cuộc họp trước thời gian kết thúc dự kiến, đồng thời cung cấp lý do để người mời họp theo dõi tình trạng tham gia họp.",
+          "content": "![Rời cuộc họp và nhập lý do](/uploads/bao-roi-hop-som/man-hinh.png \"Rời cuộc họp và nhập lý do\")\n\n## Các bước thực hiện\n\n:::steps\n1. Nhấn nút **“Rời cuộc họp”** trên màn hình chi tiết cuộc họp.\n2. Nhập lý do rời họp sớm vào popup hiển thị.\n3. Nhấn **“Xác nhận”** để hoàn tất thao tác.\n:::\n\n:::success\nHệ thống ghi nhận thời điểm rời họp và lý do báo về sớm, phục vụ việc theo dõi thời lượng và tình trạng tham gia cuộc họp.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "xem-tai-lieu-da-xuat-ban",
+          "title": "Xem tài liệu đã được xuất bản",
+          "description": "Xem các tài liệu (Biên bản họp…) đã được người mời họp xuất bản sau cuộc họp.",
+          "content": "![Tab Tài liệu](/uploads/xem-tai-lieu-da-xuat-ban/man-hinh.png \"Tab Tài liệu\")\n\n## Các bước thực hiện\n\n:::steps\n1. Vào **Chi tiết cuộc họp** → chọn tab **“Tài liệu”**.\n2. Hệ thống hiển thị danh sách tài liệu đã xuất bản.\n3. Nhấn vào tài liệu để mở và xem nội dung.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "nguoi-chu-tri",
+      "title": "Người chủ trì",
+      "description": "Phê duyệt vắng mặt (qua Teams hoặc One Nova) và phê duyệt Biên bản họp.",
+      "pages": [
+        {
+          "slug": "phe-duyet-vang-mat-qua-teams",
+          "title": "Phê duyệt vắng mặt (qua Teams)",
+          "description": "Người phê duyệt tiếp nhận và xử lý yêu cầu báo vắng của người tham gia qua tin nhắn Microsoft Teams.",
+          "content": "![Tin nhắn Teams – Yêu cầu vắng họp](/uploads/phe-duyet-vang-mat-qua-teams/man-hinh.png \"Tin nhắn Teams – Yêu cầu vắng họp\")\n\n## Các bước thực hiện\n\n:::steps\n1. Hệ thống gửi thông báo yêu cầu đến người được chỉ định qua **Teams**.\n2. Người phê duyệt xem thông tin yêu cầu.\n3. Chọn **“Duyệt phép”** hoặc **“Từ chối”**.\n4. Hệ thống cập nhật tình trạng cho người mời họp và người tham gia.\n:::\n\nCó thể xử lý trên điện thoại: [Phê duyệt vắng mặt (qua One Nova)](/docs/phe-duyet-vang-mat-qua-one-nova).\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "phe-duyet-vang-mat-qua-one-nova",
+          "title": "Phê duyệt vắng mặt (qua One Nova)",
+          "description": "Người phê duyệt tiếp nhận và xử lý yêu cầu báo vắng của người tham gia qua ứng dụng One Nova.",
+          "content": "![Duyệt hoặc từ chối yêu cầu báo vắng trên One Nova](/uploads/phe-duyet-vang-mat-qua-one-nova/man-hinh.png \"Duyệt hoặc từ chối yêu cầu báo vắng trên One Nova\")\n\n## Các bước thực hiện\n\n:::steps\n1. Hệ thống gửi thông báo yêu cầu đến người được chỉ định qua ứng dụng **One Nova**.\n2. Người phê duyệt chọn **“Phê duyệt”** hoặc **“Từ chối”**.\n3. Hệ thống cập nhật tình trạng cho người mời họp và người tham gia.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        },
+        {
+          "slug": "phe-duyet-bien-ban-hop",
+          "title": "Phê duyệt Biên bản họp",
+          "description": "Người chủ trì xem xét, chỉnh sửa và phê duyệt biên bản họp, xác nhận nội dung kết luận và các công việc được giao sau cuộc họp.",
+          "content": "![Thông báo yêu cầu phê duyệt biên bản qua Teams](/uploads/phe-duyet-bien-ban-hop/thong-bao-teams.png \"Thông báo yêu cầu phê duyệt biên bản qua Teams\")\n\n## Các bước thực hiện\n\n:::steps\n1. Nhận thông báo yêu cầu phê duyệt biên bản qua **Teams**.\n2. Nhấn **“Mở cuộc họp”** để truy cập chi tiết cuộc họp và biên bản.\n3. Kiểm tra nội dung biên bản, có thể điều chỉnh trước khi phê duyệt.\n4. **Phê duyệt**: xác nhận nội dung biên bản; hoặc **Từ chối**: nhập lý do để người mời họp chỉnh sửa lại.\n:::\n\n![Nút Phê duyệt và popup phê duyệt biên bản cuộc họp](/uploads/phe-duyet-bien-ban-hop/man-hinh.png \"Nút Phê duyệt và popup phê duyệt biên bản cuộc họp\")\n\n:::success\nBiên bản được phê duyệt hoặc trả về người mời họp kèm lý do từ chối.\n:::\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        }
+      ]
+    },
+    {
+      "id": "ho-tro",
+      "title": "Hỗ trợ",
+      "description": "Câu hỏi thường gặp khi sử dụng QLCH và One Nova.",
+      "pages": [
+        {
+          "slug": "faq",
+          "title": "Câu hỏi thường gặp (FAQ)",
+          "description": "Giải đáp 20 tình huống thường gặp khi sử dụng hệ thống QLCH và ứng dụng One Nova.",
+          "content": "## Đồng bộ cuộc họp và mã cuộc họp\n\n### 1. Tôi đã tạo cuộc họp trên Outlook nhưng chưa thấy trên QLCH hoặc One Nova. Cần kiểm tra gì?\n\nKiểm tra tài khoản thư điện tử của người mời họp đã được khai báo trên QLCH chưa và cuộc họp có được tạo bằng tài khoản đó không (xem [Điều kiện đồng bộ cuộc họp](/docs/dieu-kien-dong-bo-cuoc-hop)). QLCH kiểm tra Outlook định kỳ 5 phút/lần; cuộc họp có thể chưa hiển thị ngay. Nếu vẫn chưa thấy sau chu kỳ kiểm tra, liên hệ bộ phận phụ trách hệ thống.\n\n### 2. Thông tin cuộc họp thay đổi thì tôi cập nhật ở đâu?\n\nCập nhật lịch họp, thành phần hoặc chương trình họp trên **Outlook** — nguồn thông tin cuộc họp. QLCH tự động đồng bộ và cập nhật dữ liệu định kỳ 5 phút/lần. Nếu người mời họp muốn đồng bộ ngay thì nhấn nút **“Đồng bộ dữ liệu webhook”**. Sau đó kiểm tra lại thông tin trên QLCH; người tham gia theo dõi thông báo cập nhật trên One Nova.\n\n### 3. Nếu tôi muốn đồng bộ cuộc họp mới tạo trên Outlook mà không cần đợi 5 phút thì sao?\n\nVào mục **“Meeting Sync”** để đồng bộ thủ công cuộc họp mới về QLCH.\n\n### 4. Tại sao cuộc họp định kỳ chưa có mã? Nếu cần gửi chương trình họp sớm thì làm thế nào?\n\nCuộc họp định kỳ được tự động tạo mã trước 24 giờ so với thời điểm diễn ra. Nếu cần mã sớm hơn, người mời họp chọn **“Tạo mã cuộc họp”**. Với cuộc họp phát sinh/hội ý nhanh, mã được tạo khi cuộc họp đồng bộ từ Outlook về QLCH. Xem [Lấy mã cuộc họp để cập nhật Agenda](/docs/lay-ma-cuoc-hop-cap-nhat-agenda).\n\n### 5. Đã có mã cuộc họp trên QLCH, tôi có cần cập nhật chương trình họp không?\n\n**Có.** Người mời họp sao chép “Mã cuộc họp”, cập nhật vào tệp chương trình họp (Agenda), sau đó vào Outlook gửi lại chương trình họp cho người tham gia. Việc có mã trên QLCH không thay thế bước cập nhật tệp chương trình họp.\n\n## Phê duyệt vắng mặt\n\n### 6. Người chủ trì và người phê duyệt vắng mặt có phải là cùng một người không?\n\nĐối với cuộc họp thông thường, “Người chủ trì” và “Người phê duyệt vắng mặt” là cùng một người; người mời họp phải chọn người cho 2 trường này giống nhau. Tuy nhiên, đối với cuộc họp có chủ tịch thì chỉ định một [người được ủy quyền](/docs/chi-dinh-nguoi-duoc-uy-quyen) là “người phê duyệt vắng mặt”.\n\n### 7. Tôi đã gửi báo vắng thì có được xem là vắng có phép ngay không?\n\n**Chưa.** Khi mới gửi, yêu cầu ở trạng thái “Chờ duyệt báo vắng”. Chỉ khi người phê duyệt chấp thuận, trạng thái mới là “Vắng mặt có phép”. Người tham gia kiểm tra kết quả tại màn hình chi tiết cuộc họp trên One Nova.\n\n### 8. Tôi cần báo vắng hoặc người phê duyệt cần xử lý yêu cầu thì thao tác ở đâu?\n\nNgười tham gia chọn **“Báo vắng”** tại chi tiết cuộc họp trên One Nova, nhập lý do, đính kèm minh chứng nếu cần và chọn **“Xác nhận”**; cần gửi trước thời gian bắt đầu cuộc họp. Người phê duyệt xem thông báo trên Microsoft Teams và chọn **“Duyệt phép”** hoặc **“Từ chối”** (hoặc [xử lý trên One Nova](/docs/phe-duyet-vang-mat-qua-one-nova)).\n\n### 9. Người phê duyệt được chỉ định chưa phù hợp. Người mời họp có thể chuyển yêu cầu cho người khác không?\n\n**Có**, với yêu cầu ở trạng thái “Chờ phê duyệt” hoặc “Chờ chỉ định người duyệt”. Người mời họp chọn yêu cầu trong danh sách yêu cầu vắng mặt, chọn **“Đổi người duyệt”**, chọn người mới và xác nhận. Yêu cầu được chuyển đến người mới; các yêu cầu khác không bị ảnh hưởng.\n\n### 10. Yêu cầu báo vắng đã được duyệt hoặc bị từ chối có đổi người duyệt được không?\n\nChức năng đổi người duyệt chỉ áp dụng cho yêu cầu “Chờ phê duyệt” hoặc “Chờ chỉ định người duyệt”. Hướng dẫn hiện chưa có thao tác đổi người duyệt đối với yêu cầu đã xử lý; nếu cần điều chỉnh, liên hệ bộ phận phụ trách hệ thống.\n\n## Điểm danh\n\n### 11. Tôi cần tìm cuộc họp và điểm danh trên One Nova như thế nào?\n\nChọn **“Lịch họp”** để xem các nhóm Đang diễn ra, Sắp diễn ra hoặc Đã kết thúc. Mở cuộc họp cần tham gia, chọn **“Điểm danh”**, chọn hình thức tham gia và thực hiện xác thực khuôn mặt. Hệ thống ghi nhận thời gian điểm danh thực tế.\n\n### 12. Cuộc họp bắt đầu muộn nhưng người tham gia bị ghi nhận vào trễ thì xử lý thế nào?\n\nNgười mời họp nhập **“Thời gian bắt đầu thực tế”** tại màn hình chi tiết cuộc họp và xác nhận lưu, làm cơ sở kiểm tra các trường hợp bị ghi nhận “Vào trễ”. Cần kiểm tra lại kết quả và liên hệ bộ phận phụ trách nếu còn vướng mắc. Xem [Cập nhật thời gian họp thực tế](/docs/cap-nhat-thoi-gian-hop-thuc-te).\n\n### 13. One Nova hiển thị “Quá hạn điểm danh”, tôi cần làm gì?\n\nChọn lý do vào trễ có sẵn hoặc nhập lý do khác, sau đó chọn **“Giải trình”**. Hệ thống lưu thông tin để người mời họp theo dõi. Hướng dẫn hiện không nêu việc gửi giải trình sẽ tự động xoá trạng thái vào trễ.\n\n## Xác nhận tuân thủ\n\n### 14. Người mời họp đã đóng yêu cầu xác nhận tuân thủ. Có bật lại để người chưa phản hồi xác nhận không?\n\n**Không.** Yêu cầu chỉ được bật một lần và không thể bật lại sau khi đã đóng. Khi đóng yêu cầu, người chưa phản hồi bị ghi nhận vi phạm xác nhận tuân thủ. Vì vậy, người mời họp cần kiểm tra tình trạng phản hồi trước khi đóng.\n\n### 15. Tôi chưa hiểu nội dung được phổ biến thì nên xác nhận như thế nào?\n\nKhông xác nhận đã hiểu khi còn chưa rõ. Chọn **“Chưa nắm rõ, cần phổ biến lại”** trên giao diện và đề nghị người mời họp phổ biến lại. Xem [Xác nhận tuân thủ phổ biến hướng dẫn](/docs/xac-nhan-tuan-thu-pho-bien-huong-dan).\n\n### 16. Người mời họp đã chọn “Xác nhận đã phổ biến lại” thì người tham gia có cần xác nhận nữa không?\n\n**Có.** Nhãn “Đã phổ biến lại” chỉ ghi nhận thao tác của người mời họp, không thay thế xác nhận đã hiểu của người tham gia. Sau khi được phổ biến lại, người tham gia cần thực hiện [xác nhận trên One Nova](/docs/xac-nhan-da-duoc-pho-bien-lai).\n\n### 17. Người mời họp muốn kiểm tra ai đã phản hồi và lịch sử phổ biến lại thì xem ở đâu?\n\nMở tab **“Điểm danh”**. Tại người tham gia cần tra cứu, chọn biểu tượng thao tác rồi chọn **“Xem lịch sử”**. Hệ thống hiển thị lịch sử xác nhận tuân thủ, gồm các lần khởi tạo, phản hồi và phổ biến lại thông tin.\n\n## Biên bản họp\n\n### 18. Nhập xong biên bản và bấm “Lưu” thì công việc đã được đồng bộ sang E-Office chưa?\n\n**Chưa.** Bước “Lưu” dùng để lưu nội dung đã nhập. Danh sách công việc được đồng bộ lên E-Office **sau khi Biên bản họp được duyệt**.\n\n### 19. Trước khi gửi duyệt biên bản, người mời họp cần hoàn tất những thông tin nào? Sau khi duyệt có kết quả gì?\n\nTại tab **“Biên bản họp”**, hoàn tất nội dung, hiện trạng/khó khăn, giải pháp, chỉ đạo, người chịu trách nhiệm và ngày hoàn thành; kiểm tra rồi chọn **“Gửi phê duyệt”**. Hệ thống gửi thông báo đến người chủ trì. Sau khi được duyệt, công việc được đồng bộ lên E-Office và hệ thống tạo tệp PDF tại “Tài liệu liên quan”, chờ xuất bản.\n\n### 20. Biên bản đã được duyệt thì người tham gia đã nhận được chưa? Có thể gửi nhiều tệp cùng lúc không?\n\nBiên bản được duyệt **vẫn chờ xuất bản**. Người mời họp chọn tệp Biên bản đã trình ký, chọn hoặc tải thêm tệp cần gửi, rồi chọn **“Xuất bản & gửi mail”**. Hệ thống xuất bản trên One Nova và gửi thư đến người được mời. Chỉ hỗ trợ tải lên PDF; có thể chọn nhiều tệp PDF để gửi trong một thư duy nhất.\n",
+          "updatedAt": "2026-11-03T00:00:00+00:00"
+        }
+      ]
+    }
+  ]
+}

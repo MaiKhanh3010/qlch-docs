@@ -1,0 +1,12 @@
+{
+  "port": 3000,
+  "host": "0.0.0.0",
+  "adminPassword": "admin123",
+  "maxUploadMB": 15,
+  "keepBackups": 30,
+  "ai": {
+    "apiKey": "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",
+    "model": "claude-sonnet-5-5",
+    "maxTokens": 16000
+  }
+}
