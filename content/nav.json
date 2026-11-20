@@ -45,6 +45,7 @@
       "description": "Ghi nhận nội dung, trình ký, theo dõi phê duyệt và xuất bản Biên bản họp.",
       "pages": [
         "ghi-nhan-noi-dung-trao-doi",
+        "lay-id-task-eoffice",
         "gui-duyet-bien-ban-hop",
         "thu-hoi-trinh-ky-bien-ban",
         "theo-doi-qua-trinh-ky",
