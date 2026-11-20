@@ -2,6 +2,7 @@ import { Link } from '../lib/router.jsx';
 import { useDocs } from '../lib/docs-context.jsx';
 import { IconMenu, IconSearch } from './Icons.jsx';
 import ThemeToggle from './ThemeToggle.jsx';
+import { assetUrl } from '../lib/mode.js';
 
 export default function Topbar({ onMenu, onSearch }) {
   const { docs } = useDocs();
@@ -10,7 +11,7 @@ export default function Topbar({ onMenu, onSearch }) {
     <header className="topbar">
       <button className="icon-btn menu-btn" onClick={onMenu} aria-label="Mở menu"><IconMenu /></button>
       <Link className="brand" to="/">
-        {site.logo && <img src={site.logo} alt="" />}
+        {site.logo && <img src={assetUrl(site.logo)} alt="" />}
         <span>{site.title || 'Hướng dẫn sử dụng'}</span>
       </Link>
       <button className="search-trigger" type="button" onClick={onSearch}>

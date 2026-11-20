@@ -25,6 +25,19 @@ npm run build    # tạo thư mục dist/
 npm run preview  # xem thử bản build tại http://localhost:4173
 ```
 
+### Xuất 1 file HTML để gắn vào project khác
+
+```bash
+npm run build:single   # tạo dist-single/huong-dan-qlch.html
+```
+
+File này đã gộp sẵn toàn bộ CSS, JS, nội dung và ảnh, chuyển trang bằng `#/docs/<slug>`, không cần server riêng. Cách dùng:
+
+- Chép vào thư mục public/static của project kia rồi mở bằng link, ví dụ `/huong-dan/huong-dan-qlch.html#/docs/faq`.
+- Hoặc nhúng: `<iframe src="/huong-dan/huong-dan-qlch.html" style="width:100%;height:100vh;border:0"></iframe>`.
+
+Mỗi lần sửa nội dung, chạy lại lệnh trên để cập nhật file.
+
 Thư mục `dist/` là website tĩnh hoàn chỉnh – chép lên bất kỳ web server nào (IIS, Nginx, Apache, SharePoint/Azure Static Web Apps, GitHub Pages…). Mỗi trang đã có sẵn file `dist/docs/<slug>/index.html` nên **không cần cấu hình rewrite**.
 
 > Website cần được đặt ở **gốc tên miền** (ví dụ `https://huongdan.congty.vn/`), vì ảnh và liên kết dùng đường dẫn bắt đầu bằng `/`.

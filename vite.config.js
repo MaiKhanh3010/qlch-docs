@@ -95,8 +95,88 @@ function contentPlugin() {
   };
 }
 
-export default defineConfig({
-  plugins: [react(), contentPlugin()],
-  server: { port: 5173, host: true },
-  preview: { port: 4173, host: true },
+const MIME = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg', gif: 'image/gif', webp: 'image/webp', svg: 'image/svg+xml' };
+const dataUri = (file) => `data:${MIME[path.extname(file).slice(1).toLowerCase()] || 'application/octet-stream'};base64,${fs.readFileSync(file).toString('base64')}`;
+
+/**
+ * Module ảo "virtual:inline-assets": bảng /uploads/... -> data URI.
+ * Chỉ có dữ liệu khi build 1 file (chỉ nhúng ảnh thực sự được dùng trong nội dung + logo).
+ */
+function inlineAssetsPlugin(single) {
+  const ID = 'virtual:inline-assets';
+  return {
+    name: 'qlch-inline-assets',
+    resolveId(id) { return id === ID ? '\0' + ID : null; },
+    load(id) {
+      if (id !== '\0' + ID) return null;
+      if (!single) return 'export default {};';
+      const { site, pages } = readContent();
+      const used = new Set(site.logo ? [site.logo] : []);
+      for (const { body } of Object.values(pages)) {
+        for (const m of body.matchAll(/\((\/uploads\/[^)\s"]+)/g)) used.add(decodeURI(m[1]));
+      }
+      const map = {};
+      for (const url of used) {
+        const file = path.join(ROOT, 'public', url);
+        if (fs.existsSync(file)) map[url] = dataUri(file);
+      }
+      return `export default ${JSON.stringify(map)};`;
+    },
+  };
+}
+
+/** Sau khi build 1 file: gộp CSS + JS + favicon vào index.html, xuất ra 1 file HTML duy nhất */
+function singleFilePlugin(outDir, fileName) {
+  return {
+    name: 'qlch-single-file',
+    apply: 'build',
+    closeBundle() {
+      const dir = path.join(ROOT, outDir);
+      const indexFile = path.join(dir, 'index.html');
+      if (!fs.existsSync(indexFile)) return;
+      let html = fs.readFileSync(indexFile, 'utf8');
+      const read = (href) => fs.readFileSync(path.join(dir, href.replace(/^\.?\//, '')), 'utf8');
+      const { site } = readContent();
+
+      html = html.replace(/<link rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g, (_, href) => `<style>\n${read(href)}\n</style>`);
+      html = html.replace(/<script type="module"[^>]*src="([^"]+)"[^>]*><\/script>/g,
+        (_, src) => `<script type="module">\n${read(src).replace(/<\/script/gi, '<\\/script')}\n</script>`);
+      html = html.replace(/<link rel="modulepreload"[^>]*>\s*/g, '');
+      html = html.replace(/<link rel="icon"[^>]*>/, () => `<link rel="icon" type="image/svg+xml" href="${dataUri(path.join(ROOT, 'public', 'favicon.svg'))}">`);
+      html = html.replace(/<title>[^<]*<\/title>/, () => `<title>${String(site.title || 'Hướng dẫn sử dụng').replace(/</g, '&lt;')}</title>`);
+
+      fs.rmSync(dir, { recursive: true, force: true });
+      fs.mkdirSync(dir, { recursive: true });
+      const out = path.join(dir, fileName);
+      fs.writeFileSync(out, html);
+      console.log(`\n  ✔ Đã xuất 1 file HTML: ${path.relative(ROOT, out)} (${(fs.statSync(out).size / 1024).toFixed(0)} KB)`);
+    },
+  };
+}
+
+export default defineConfig(({ mode }) => {
+  const single = mode === 'single';
+  const singleOut = 'dist-single';
+  return {
+    define: { __SINGLE_FILE__: JSON.stringify(single) },
+    plugins: [
+      react(),
+      inlineAssetsPlugin(single),
+      single ? singleFilePlugin(singleOut, 'huong-dan-qlch.html') : contentPlugin(),
+    ],
+    server: { port: 5173, host: true },
+    preview: { port: 4173, host: true },
+    ...(single && {
+      base: './',
+      publicDir: false,
+      build: {
+        outDir: singleOut,
+        emptyOutDir: true,
+        assetsInlineLimit: Number.MAX_SAFE_INTEGER,
+        cssCodeSplit: false,
+        modulePreload: false,
+        rollupOptions: { output: { inlineDynamicImports: true } },
+      },
+    }),
+  };
 });

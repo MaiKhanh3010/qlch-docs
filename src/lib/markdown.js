@@ -5,6 +5,8 @@
  * và các khối mở rộng:  :::note | :::tip | :::warning | :::info | :::success | :::steps | :::cards
  */
 
+import { resolveUrl } from './mode.js';
+
 const CALLOUT_TITLES = { note: 'Lưu ý', tip: 'Mẹo', warning: 'Cảnh báo', info: 'Thông tin', success: 'Kết quả', danger: 'Quan trọng' };
 
 function esc(s) {
@@ -19,7 +21,7 @@ function slugify(s) {
 function safeUrl(u) {
   u = String(u || '').trim();
   if (/^(javascript|vbscript|data):/i.test(u) && !/^data:image\//i.test(u)) return '#';
-  return u;
+  return resolveUrl(u);
 }
 
 // ---------------------------------------------------------------- inline

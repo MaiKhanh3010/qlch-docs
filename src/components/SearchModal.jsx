@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useDocs } from '../lib/docs-context.jsx';
 import { navigate } from '../lib/router.jsx';
 import { search } from '../lib/search.js';
+import { toHref } from '../lib/mode.js';
 import { IconSearch } from './Icons.jsx';
 
 export default function SearchModal({ open, onClose }) {
@@ -44,7 +45,7 @@ export default function SearchModal({ open, onClose }) {
         <div className="search-results" ref={listRef}>
           {results.length === 0 && <div className="search-empty">Không tìm thấy kết quả cho “{q}”</div>}
           {results.map((r, i) => (
-            <a key={r.page.slug} href={`/docs/${r.page.slug}`} className={'sr-item' + (i === sel ? ' sel' : '')}
+            <a key={r.page.slug} href={toHref(`/docs/${r.page.slug}`)} className={'sr-item' + (i === sel ? ' sel' : '')}
               onMouseEnter={() => setSel(i)}
               onClick={(e) => { if (!e.ctrlKey && !e.metaKey) { e.preventDefault(); go(r); } }}>
               <div className="sr-sec">{r.section.title}</div>

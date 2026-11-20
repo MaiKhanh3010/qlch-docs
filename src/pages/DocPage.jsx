@@ -3,6 +3,7 @@ import { useDocs } from '../lib/docs-context.jsx';
 import { Link } from '../lib/router.jsx';
 import { render, inline } from '../lib/markdown.js';
 import { copyText, fmtDate } from '../lib/ui.js';
+import { fullUrl } from '../lib/mode.js';
 import Markdown from '../components/Markdown.jsx';
 import Toc from '../components/Toc.jsx';
 import { IconCopy, IconLink } from '../components/Icons.jsx';
@@ -43,7 +44,7 @@ export default function DocPage({ slug, hash, onImage }) {
             <button className="chip-btn" onClick={() => copyText(`# ${page.title}\n\n${page.description ? page.description + '\n\n' : ''}${page.content}`, 'Đã sao chép nội dung trang')}>
               <IconCopy />Sao chép nội dung
             </button>
-            <button className="chip-btn" onClick={() => copyText(`${location.origin}/docs/${page.slug}`, 'Đã sao chép liên kết')}>
+            <button className="chip-btn" onClick={() => copyText(fullUrl(`/docs/${page.slug}`), 'Đã sao chép liên kết')}>
               <IconLink />Sao chép liên kết
             </button>
           </div>
