@@ -26,7 +26,7 @@ updated: 2026-11-03
 4. Người đã báo vắng.
 5. Người báo rời họp sớm.
 +++
-### Quản lý công việc
+### Quản lý công việc (Thư ký cuộc họp)
 1. Ghi nhận công việc được chỉ đạo.
 2. Xuất tài liệu biên bản họp.
 3. Trình ký biên bản họp.

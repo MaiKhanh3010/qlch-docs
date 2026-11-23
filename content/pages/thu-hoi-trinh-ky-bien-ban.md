@@ -15,5 +15,5 @@ updated: 2026-11-03
 :::
 
 :::success
-Biên bản được thu hồi khỏi quy trình trình ký để người mời họp tiếp tục chỉnh sửa.
+Biên bản được thu hồi khỏi quy trình trình ký để thư ký cuộc họp tiếp tục chỉnh sửa.
 :::

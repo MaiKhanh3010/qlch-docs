@@ -12,11 +12,11 @@ updated: 2026-11-03
 1. Nhận thông báo yêu cầu phê duyệt biên bản qua **Teams**.
 2. Nhấn **“Mở cuộc họp”** để truy cập chi tiết cuộc họp và biên bản.
 3. Kiểm tra nội dung biên bản, có thể điều chỉnh trước khi phê duyệt.
-4. **Phê duyệt**: xác nhận nội dung biên bản; hoặc **Từ chối**: nhập lý do để người mời họp chỉnh sửa lại.
+4. **Phê duyệt**: xác nhận nội dung biên bản; hoặc **Từ chối**: nhập lý do để thư ký cuộc họp chỉnh sửa lại.
 :::
 
 ![Nút Phê duyệt và popup phê duyệt biên bản cuộc họp](/uploads/phe-duyet-bien-ban-hop/man-hinh.png "Nút Phê duyệt và popup phê duyệt biên bản cuộc họp")
 
 :::success
-Biên bản được phê duyệt hoặc trả về người mời họp kèm lý do từ chối.
+Biên bản được phê duyệt hoặc trả về thư ký cuộc họp kèm lý do từ chối.
 :::

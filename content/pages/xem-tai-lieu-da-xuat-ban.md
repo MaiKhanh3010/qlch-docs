@@ -1,6 +1,6 @@
 ---
 title: "Xem tài liệu đã được xuất bản"
-description: "Xem các tài liệu (Biên bản họp…) đã được người mời họp xuất bản sau cuộc họp."
+description: "Xem các tài liệu (Biên bản họp…) đã được thư ký cuộc họp xuất bản sau cuộc họp."
 updated: 2026-11-03
 ---
 

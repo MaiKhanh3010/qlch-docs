@@ -86,10 +86,10 @@ Mở tab **“Điểm danh”**. Tại người tham gia cần tra cứu, chọn
 
 **Chưa.** Bước “Lưu” dùng để lưu nội dung đã nhập. Danh sách công việc được đồng bộ lên E-Office **sau khi Biên bản họp được duyệt**.
 
-### 19. Trước khi gửi duyệt biên bản, người mời họp cần hoàn tất những thông tin nào? Sau khi duyệt có kết quả gì?
+### 19. Trước khi gửi duyệt biên bản, thư ký cuộc họp cần hoàn tất những thông tin nào? Sau khi duyệt có kết quả gì?
 
 Tại tab **“Biên bản họp”**, hoàn tất nội dung, hiện trạng/khó khăn, giải pháp, chỉ đạo, người chịu trách nhiệm và ngày hoàn thành; kiểm tra rồi chọn **“Gửi phê duyệt”**. Hệ thống gửi thông báo đến người chủ trì. Sau khi được duyệt, công việc được đồng bộ lên E-Office và hệ thống tạo tệp PDF tại “Tài liệu liên quan”, chờ xuất bản.
 
 ### 20. Biên bản đã được duyệt thì người tham gia đã nhận được chưa? Có thể gửi nhiều tệp cùng lúc không?
 
-Biên bản được duyệt **vẫn chờ xuất bản**. Người mời họp chọn tệp Biên bản đã trình ký, chọn hoặc tải thêm tệp cần gửi, rồi chọn **“Xuất bản & gửi mail”**. Hệ thống xuất bản trên One Nova và gửi thư đến người được mời. Chỉ hỗ trợ tải lên PDF; có thể chọn nhiều tệp PDF để gửi trong một thư duy nhất.
+Biên bản được duyệt **vẫn chờ xuất bản**. Thư ký cuộc họp chọn tệp Biên bản đã trình ký, chọn hoặc tải thêm tệp cần gửi, rồi chọn **“Xuất bản & gửi mail”**. Hệ thống xuất bản trên One Nova và gửi thư đến người được mời. Chỉ hỗ trợ tải lên PDF; có thể chọn nhiều tệp PDF để gửi trong một thư duy nhất.

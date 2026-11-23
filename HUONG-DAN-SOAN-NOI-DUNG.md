@@ -33,7 +33,7 @@ updated: 2026-11-19
 Quy ước:
 
 - Tên nút/trường/tab: **in đậm** và đặt trong ngoặc kép “…”.
-- Thuật ngữ: **người mời họp**, **người tham gia**, **người chủ trì**, **One Nova** (có dấu cách), **QLCH**, **E-Office**.
+- Thuật ngữ: **người mời họp**, **thư ký cuộc họp** (phần Biên bản họp), **người tham gia**, **người chủ trì**, **One Nova** (có dấu cách), **QLCH**, **E-Office**.
 - Kết quả ngắn 1–2 câu dùng khối `:::success`; nhiều trạng thái dùng bảng.
 - Thao tác không hoàn tác được dùng `:::warning`; mẹo dùng `:::tip`.
 - Liên kết sang trang khác: `[Tên trang](/docs/slug)`; tới một mục: `/docs/faq#ten-muc`.

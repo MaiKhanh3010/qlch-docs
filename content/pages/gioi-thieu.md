@@ -35,7 +35,8 @@ Từ đồng bộ cuộc họp đến theo dõi thực thi sau họp:
 ## Tài liệu dành cho từng vai trò
 
 :::cards
-- [Người mời họp](/docs/tong-quan-chuc-nang-nguoi-moi-hop) Quản lý cuộc họp, mã Agenda, theo dõi tham gia và biên bản họp trên QLCH.
+- [Người mời họp](/docs/tong-quan-chuc-nang-nguoi-moi-hop) Quản lý cuộc họp, mã Agenda và theo dõi tham gia trên QLCH.
+- [Thư ký cuộc họp](/docs/ghi-nhan-noi-dung-trao-doi) Ghi nhận nội dung, trình ký, theo dõi phê duyệt và xuất bản Biên bản họp trên QLCH.
 - [Người tham gia](/docs/tong-quan-nguoi-tham-gia) Nhận thông báo, báo vắng, điểm danh, báo rời họp sớm và xác nhận tuân thủ trên One Nova.
 - [Người chủ trì](/docs/phe-duyet-bien-ban-hop) Phê duyệt vắng mặt và phê duyệt Biên bản họp.
 - [Câu hỏi thường gặp](/docs/faq) Giải đáp nhanh các tình huống hay gặp.
