@@ -1,12 +1,12 @@
 ---
 title: "Lấy ID task, ID project trên E-Office"
-description: "Lấy ID task hoặc ID project trên E-Office để khai báo vào cột “ID task cha”, “ID project” hoặc “Link task EOffice” trong tab BBH, giúp nội dung chỉ đạo được gắn đúng task/project."
+description: "Lấy ID task hoặc ID project trên E-Office để khai báo vào cột “ID task cha”, “ID project” hoặc “Link task EOffice” trong tab Biên bản họp, giúp nội dung chỉ đạo được gắn đúng task/project."
 updated: 2026-11-20
 ---
 
 ## Khi nào nhập vào cột nào?
 
-Mỗi nội dung chỉ đạo trong tab **“BBH”** có thể gắn với E-Office theo 1 trong 3 cách:
+Mỗi nội dung chỉ đạo trong tab **“Biên bản họp”** có thể gắn với E-Office theo 1 trong 3 cách:
 
 | Cột | Nhập khi muốn… | Loại ID cần lấy |
 |---|---|---|
@@ -26,7 +26,7 @@ Dùng cho cột **“ID task cha”** và **“Link task EOffice”**.
 1. Vào **E-Office**, mở task đã tồn tại.
 2. Nếu task đang mở dạng cửa sổ nổi, nhấn **“Chi tiết”** → **“Xem chi tiết”** để mở trang chi tiết task.
 3. Trên thanh địa chỉ, lấy dãy số sau `ID=` trong đường dẫn task.
-4. Dán ID vào cột tương ứng (**“ID task cha”** hoặc **“Link task EOffice”**) trong tab **“BBH”**.
+4. Dán ID vào cột tương ứng (**“ID task cha”** hoặc **“Link task EOffice”**) trong tab **“Biên bản họp”**.
 :::
 
 ![Mở trang chi tiết task từ cửa sổ nổi](/uploads/lay-id-task-eoffice/xem-chi-tiet-task.png "Nhấn “Chi tiết” → “Xem chi tiết” để mở trang chi tiết task")
@@ -47,7 +47,7 @@ Dùng cho cột **“ID project”**. Cách lấy tương tự như ID task.
 1. Vào **E-Office**, chọn **“Dự án”** ở menu bên trái.
 2. Mở project cần gắn task.
 3. Trên thanh địa chỉ, lấy dãy số sau `ID=` (trước dấu `&`) trong đường dẫn project.
-4. Dán ID vào cột **“ID project”** trong tab **“BBH”**.
+4. Dán ID vào cột **“ID project”** trong tab **“Biên bản họp”**.
 :::
 
 ![ID project nằm trên đường dẫn](/uploads/lay-id-task-eoffice/id-project-tren-url.png "ID project là dãy số sau ID= trên đường dẫn project, ví dụ: 10247")
@@ -56,4 +56,25 @@ Ví dụ: đường dẫn `https://eoffice.novagroup.vn/apps/work-project-projec
 
 :::note Không dùng mã dự án
 ID project là số trên **đường dẫn**, không phải mã đứng trước tên dự án (ví dụ “3491 - Nghiệp vụ thư ký” có mã 3491, nhưng ID project là 10247).
+:::
+
+## Nhập ID vào Biên bản họp
+
+Sau khi đã lấy được ID task hoặc ID project, nhập ID vào **1 trong 3 cột** tương ứng trên dòng chỉ đạo trong Biên bản họp.
+
+:::steps
+1. Trên QLCH, mở **chi tiết cuộc họp** và chọn tab **“Biên bản họp”**.
+2. Tại dòng nội dung chỉ đạo cần gắn với E-Office, kéo thanh cuộn ngang sang phải đến 3 cột **“ID task cha”**, **“ID Project”** và **“Link task EOffice”**.
+3. Dán ID vào **một** cột phù hợp (xem bảng [Khi nào nhập vào cột nào?](#khi-nao-nhap-vao-cot-nao)): ID task nhập vào **“ID task cha”** (tạo task con) hoặc **“Link task EOffice”** (cập nhật task đã có); ID project nhập vào **“ID Project”**.
+4. Sau khi nhập, 2 cột còn lại tự động bị khóa. Hoàn tất các thông tin khác của dòng chỉ đạo và **lưu** biên bản họp.
+:::
+
+![3 cột nhập ID trong tab Biên bản họp](/uploads/lay-id-task-eoffice/nhap-id-bien-ban-hop.png "3 cột “ID task cha”, “ID Project” và “Link task EOffice” nằm ở cuối bảng Biên bản họp")
+
+:::tip Không thấy 3 cột?
+Bảng Biên bản họp có nhiều cột; dùng thanh cuộn ngang bên dưới bảng để kéo sang phải đến cuối bảng.
+:::
+
+:::note Thời điểm công việc được đồng bộ
+Nhập ID và lưu chưa đồng bộ ngay sang E-Office. Công việc chỉ được đồng bộ **sau khi Biên bản họp được duyệt** (xem [Gửi duyệt Biên bản họp](/docs/gui-duyet-bien-ban-hop)).
 :::
