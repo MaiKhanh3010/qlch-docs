@@ -11,7 +11,8 @@ updated: 2026-11-03
 1. Đồng bộ cuộc họp từ Outlook.
 2. Quản lý mã cuộc họp/Agenda.
 3. Quản lý thành phần tham gia.
-4. Người dùng chọn người phê duyệt yêu cầu vắng mặt.
+4. Người dùng chọn người chủ trì
+5. Người dùng chọn người được ủy quyền
 +++
 ### Công tác trong cuộc họp
 1. Theo dõi tình trạng tham gia họp.
