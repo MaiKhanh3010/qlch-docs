@@ -31,6 +31,7 @@
       "description": "Thống kê điểm danh, thời gian họp thực tế, xác nhận tuân thủ và yêu cầu vắng mặt.",
       "pages": [
         "xem-thong-ke-tinh-trang-tham-gia",
+        "xem-nguoi-tham-gia-tu-groupmail",
         "cap-nhat-thoi-gian-hop-thuc-te",
         "xac-nhan-nguoi-tham-gia-da-vao-hop",
         "yeu-cau-xac-nhan-tuan-thu",
