@@ -28,9 +28,9 @@ Cuộc họp định kỳ được tự động tạo mã trước 24 giờ so v
 
 ## Phê duyệt vắng mặt
 
-### 6. Người chủ trì và người phê duyệt vắng mặt có phải là cùng một người không?
+### 6. Người chủ trì và Người được ủy quyền có phải là cùng một người không?
 
-Đối với cuộc họp thông thường, “Người chủ trì” và “Người phê duyệt vắng mặt” là cùng một người; người mời họp phải chọn người cho 2 trường này giống nhau. Tuy nhiên, đối với cuộc họp có chủ tịch thì chỉ định một [người được ủy quyền](/docs/chi-dinh-nguoi-duoc-uy-quyen) là “người phê duyệt vắng mặt”.
+Đối với cuộc họp thông thường, “Người chủ trì” và “Người được ủy quyền” là cùng một người; người mời họp phải chọn người cho 2 trường này giống nhau. Tuy nhiên, đối với cuộc họp có chủ tịch thì chỉ định một [người được ủy quyền](/docs/chi-dinh-nguoi-duoc-uy-quyen) là “người được ủy quyền”.
 
 ### 7. Tôi đã gửi báo vắng thì có được xem là vắng có phép ngay không?
 

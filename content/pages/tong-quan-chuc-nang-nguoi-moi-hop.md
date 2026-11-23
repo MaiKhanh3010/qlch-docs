@@ -7,7 +7,7 @@ updated: 2026-11-03
 :::columns
 ### Quản lý cuộc họp
 1. Nhận thông tin từ Outlook.
-2. Chỉ định người phê duyệt vắng mặt.
+2. Chỉ định người được ủy quyền
 3. Chỉ định người chủ trì.
 4. Theo dõi danh sách người được mời.
 +++

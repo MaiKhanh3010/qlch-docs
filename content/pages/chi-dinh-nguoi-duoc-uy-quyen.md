@@ -24,5 +24,5 @@ Người được ủy quyền sẽ thực hiện các công việc:
 - Xác nhận công việc chỉ định trong cuộc họp đã hoàn thành trên E-Office.
 
 :::tip
-Đối với cuộc họp thông thường, “Người chủ trì” và “Người phê duyệt vắng mặt” là cùng một người. Xem thêm [Câu hỏi thường gặp](/docs/faq#phe-duyet-vang-mat).
+Đối với cuộc họp thông thường, “Người chủ trì” và “Người được ủy quyền” là cùng một người. Xem thêm [Câu hỏi thường gặp](/docs/faq#phe-duyet-vang-mat).
 :::
