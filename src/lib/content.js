@@ -10,6 +10,10 @@ import files from './content-files.js';
 import { parseFrontmatter } from './frontmatter.js';
 
 function buildDocs() {
+  // Liên kết tới trang không có trong menu (vd. bản tài liệu tách riêng) -> chỉ giữ chữ
+  const inNav = new Set(nav.sections.flatMap((s) => s.pages));
+  const stripDeadLinks = (md) => md.replace(/(!?)\[([^\]]+)\]\(\/docs\/([a-z0-9-]+)[^)]*\)/g,
+    (m, img, text, slug) => (img || inNav.has(slug) ? m : text));
   const pages = {};
   for (const [file, raw] of Object.entries(files)) {
     const slug = file.split('/').pop().replace(/\.md$/, '');
@@ -19,7 +23,7 @@ function buildDocs() {
       title: data.title || slug,
       description: data.description || '',
       updatedAt: data.updated || '',
-      content: body,
+      content: stripDeadLinks(body),
     };
   }
   const sections = nav.sections.map((s) => ({

@@ -8,10 +8,19 @@ import { parseFrontmatter } from './src/lib/frontmatter.js';
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const CONTENT = path.join(ROOT, 'content');
 
+/**
+ * Các bộ tài liệu tách riêng (mỗi bộ có site.json + nav.json trong content/guides/<id>/,
+ * dùng chung các trang trong content/pages/). Build: vite build --mode <mode>
+ */
+const GUIDES = {
+  onenova: { dir: 'nguoi-tham-gia', outDir: 'dist-onenova', fileName: 'huong-dan-nguoi-tham-gia-onenova.html' },
+};
+const guideDir = (guide) => (guide ? path.join(CONTENT, 'guides', guide.dir) : CONTENT);
+
 /** Đọc toàn bộ nội dung để kiểm tra và tạo trang tĩnh */
-function readContent() {
-  const nav = JSON.parse(fs.readFileSync(path.join(CONTENT, 'nav.json'), 'utf8'));
-  const site = JSON.parse(fs.readFileSync(path.join(CONTENT, 'site.json'), 'utf8'));
+function readContent(guide) {
+  const nav = JSON.parse(fs.readFileSync(path.join(guideDir(guide), 'nav.json'), 'utf8'));
+  const site = JSON.parse(fs.readFileSync(path.join(guideDir(guide), 'site.json'), 'utf8'));
   const pages = {};
   for (const f of fs.readdirSync(path.join(CONTENT, 'pages'))) {
     if (!f.endsWith('.md')) continue;
@@ -31,6 +40,8 @@ function checkContent() {
   const errors = [];
   const warnings = [];
   const inNav = new Set();
+  // Trang chỉ dùng trong bộ tài liệu tách riêng thì không cảnh báo
+  const inGuides = new Set(Object.values(GUIDES).flatMap((g) => readContent(g).nav.sections.flatMap((s) => s.pages)));
   for (const s of nav.sections) {
     for (const slug of s.pages) {
       if (inNav.has(slug)) errors.push(`nav.json: trang "${slug}" bị khai báo 2 lần`);
@@ -39,7 +50,7 @@ function checkContent() {
     }
   }
   for (const [slug, { data, body }] of Object.entries(pages)) {
-    if (!inNav.has(slug)) warnings.push(`content/pages/${slug}.md chưa được thêm vào nav.json nên sẽ không hiển thị`);
+    if (!inNav.has(slug) && !inGuides.has(slug)) warnings.push(`content/pages/${slug}.md chưa được thêm vào nav.json nên sẽ không hiển thị`);
     if (!data.title) warnings.push(`${slug}.md: thiếu "title"`);
     for (const m of body.matchAll(/\]\((\/[^)\s#"]+)/g)) {
       const url = decodeURI(m[1]);
@@ -102,7 +113,7 @@ const dataUri = (file) => `data:${MIME[path.extname(file).slice(1).toLowerCase()
  * Module ảo "virtual:inline-assets": bảng /uploads/... -> data URI.
  * Chỉ có dữ liệu khi build 1 file (chỉ nhúng ảnh thực sự được dùng trong nội dung + logo).
  */
-function inlineAssetsPlugin(single) {
+function inlineAssetsPlugin(single, guide) {
   const ID = 'virtual:inline-assets';
   return {
     name: 'qlch-inline-assets',
@@ -110,9 +121,11 @@ function inlineAssetsPlugin(single) {
     load(id) {
       if (id !== '\0' + ID) return null;
       if (!single) return 'export default {};';
-      const { site, pages } = readContent();
+      const { site, nav, pages } = readContent(guide);
       const used = new Set(site.logo ? [site.logo] : []);
-      for (const { body } of Object.values(pages)) {
+      // Bản tách riêng: chỉ nhúng ảnh của các trang có trong menu của bộ đó
+      const list = guide ? nav.sections.flatMap((s) => s.pages).map((slug) => pages[slug]).filter(Boolean) : Object.values(pages);
+      for (const { body } of list) {
         for (const m of body.matchAll(/\((\/uploads\/[^)\s"]+)/g)) used.add(decodeURI(m[1]));
       }
       const map = {};
@@ -126,17 +139,20 @@ function inlineAssetsPlugin(single) {
 }
 
 /** Sau khi build 1 file: gộp CSS + JS + favicon vào index.html, xuất ra 1 file HTML duy nhất */
-function singleFilePlugin(outDir, fileName) {
+function singleFilePlugin(outDir, fileName, guide) {
   return {
     name: 'qlch-single-file',
     apply: 'build',
     closeBundle() {
       const dir = path.join(ROOT, outDir);
       const indexFile = path.join(dir, 'index.html');
-      if (!fs.existsSync(indexFile)) return;
+      if (!fs.existsSync(indexFile)) throw new Error(`Không tìm thấy ${path.relative(ROOT, indexFile)} sau khi build`);
       let html = fs.readFileSync(indexFile, 'utf8');
+      if (!/<script type="module"[^>]*src=/.test(html)) {
+        throw new Error(`${path.relative(ROOT, indexFile)} không có script (${html.length} ký tự) – bản build bị lỗi`);
+      }
       const read = (href) => fs.readFileSync(path.join(dir, href.replace(/^\.?\//, '')), 'utf8');
-      const { site } = readContent();
+      const { site } = readContent(guide);
 
       html = html.replace(/<link rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g, (_, href) => `<style>\n${read(href)}\n</style>`);
       html = html.replace(/<script type="module"[^>]*src="([^"]+)"[^>]*><\/script>/g,
@@ -149,20 +165,25 @@ function singleFilePlugin(outDir, fileName) {
       fs.mkdirSync(dir, { recursive: true });
       const out = path.join(dir, fileName);
       fs.writeFileSync(out, html);
+      if (fs.statSync(out).size === 0) throw new Error(`Ghi file ${path.relative(ROOT, out)} thất bại (0 byte)`);
       console.log(`\n  ✔ Đã xuất 1 file HTML: ${path.relative(ROOT, out)} (${(fs.statSync(out).size / 1024).toFixed(0)} KB)`);
     },
   };
 }
 
 export default defineConfig(({ mode }) => {
-  const single = mode === 'single';
-  const singleOut = 'dist-single';
+  const guide = GUIDES[mode];
+  const single = mode === 'single' || !!guide;
+  const singleOut = guide ? guide.outDir : 'dist-single';
+  const gdir = guide && guideDir(guide).replace(/\\/g, '/');
   return {
     define: { __SINGLE_FILE__: JSON.stringify(single) },
+    // Bản tách riêng: thay content/site.json và content/nav.json bằng cấu hình của bộ đó
+    ...(guide && { resolve: { alias: [{ find: /^.*\/content\/(site|nav)\.json$/, replacement: `${gdir}/$1.json` }] } }),
     plugins: [
       react(),
-      inlineAssetsPlugin(single),
-      single ? singleFilePlugin(singleOut, 'huong-dan-qlch.html') : contentPlugin(),
+      inlineAssetsPlugin(single, guide),
+      single ? singleFilePlugin(singleOut, guide ? guide.fileName : 'huong-dan-qlch.html', guide) : contentPlugin(),
     ],
     server: { port: 5173, host: true },
     preview: { port: 4173, host: true },

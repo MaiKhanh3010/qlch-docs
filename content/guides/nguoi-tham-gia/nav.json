@@ -1,0 +1,59 @@
+{
+  "sections": [
+    {
+      "id": "mo-dau",
+      "title": "Mở đầu",
+      "description": "Mục đích tài liệu, đối tượng áp dụng, những việc cần chuẩn bị và tổng quan các chức năng dành cho người tham gia.",
+      "pages": [
+        "mo-dau-nguoi-tham-gia",
+        "tong-quan-nguoi-tham-gia"
+      ]
+    },
+    {
+      "id": "truoc-cuoc-hop",
+      "title": "Trước cuộc họp",
+      "description": "Nắm lịch họp, theo dõi thay đổi và báo vắng khi không thể tham dự.",
+      "pages": [
+        "nhan-thong-bao-cuoc-hop",
+        "xem-danh-sach-cuoc-hop-onenova",
+        "gui-yeu-cau-bao-vang",
+        "xem-ket-qua-phe-duyet-bao-vang"
+      ]
+    },
+    {
+      "id": "trong-cuoc-hop",
+      "title": "Trong cuộc họp",
+      "description": "Điểm danh, giải trình khi vào họp trễ và báo rời họp sớm.",
+      "pages": [
+        "diem-danh-vao-hop",
+        "giai-trinh-vao-hop-tre",
+        "bao-roi-hop-som"
+      ]
+    },
+    {
+      "id": "xac-nhan-tuan-thu",
+      "title": "Xác nhận tuân thủ",
+      "description": "Xác nhận đã hiểu nội dung được phổ biến hoặc đề nghị phổ biến lại.",
+      "pages": [
+        "xac-nhan-tuan-thu-pho-bien-huong-dan",
+        "xac-nhan-da-duoc-pho-bien-lai"
+      ]
+    },
+    {
+      "id": "sau-cuoc-hop",
+      "title": "Sau cuộc họp",
+      "description": "Xem lại Biên bản họp và các tài liệu đã được xuất bản.",
+      "pages": [
+        "xem-tai-lieu-da-xuat-ban"
+      ]
+    },
+    {
+      "id": "tong-ket",
+      "title": "Tổng kết",
+      "description": "Tóm tắt quy trình, các lưu ý quan trọng và câu hỏi thường gặp của người tham gia.",
+      "pages": [
+        "tong-ket-nguoi-tham-gia"
+      ]
+    }
+  ]
+}
