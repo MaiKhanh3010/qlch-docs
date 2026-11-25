@@ -23,3 +23,25 @@ export function parseFrontmatter(raw) {
   }
   return { data, body: text.slice(m[0].length).replace(/^\n+/, '') };
 }
+
+/** Trang có `hidden: true` ở phần đầu -> chưa hiển thị (vd. tính năng chưa triển khai) */
+export const isHiddenPage = (data) => String(data.hidden).toLowerCase() === 'true';
+
+/**
+ * Bỏ các khối `:::hidden` … `:::` (đoạn nội dung tạm ẩn, giữ lại trong file để bật lại sau).
+ * Hỗ trợ khối ::: lồng bên trong.
+ */
+export function stripHidden(body) {
+  const out = [];
+  let depth = 0;
+  for (const line of body.split('\n')) {
+    if (depth > 0) {
+      if (/^\s*:::\s*[a-z]+/.test(line)) depth++;
+      else if (/^\s*:::\s*$/.test(line)) depth--;
+      continue;
+    }
+    if (/^\s*:::\s*hidden\b/.test(line)) { depth = 1; continue; }
+    out.push(line);
+  }
+  return out.join('\n');
+}

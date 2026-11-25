@@ -35,9 +35,11 @@ updated: 2026-11-25
 
 Chọn lý do vào trễ có sẵn hoặc nhập lý do khác, sau đó chọn **“Giải trình”**. Hệ thống lưu thông tin để người mời họp theo dõi.
 
+:::hidden
 ### Cuộc họp yêu cầu điểm danh bằng NFC thì làm thế nào?
 
 Khi điểm danh, chọn hình thức **“Trực tiếp (Offline)”** và quét NFC tại phòng họp để hoàn tất.
+:::
 
 ### Tôi chưa thấy cuộc họp hoặc thông tin cuộc họp chưa đúng?
 

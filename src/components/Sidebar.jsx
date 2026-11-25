@@ -3,7 +3,7 @@ import { Link } from '../lib/router.jsx';
 import { useDocs } from '../lib/docs-context.jsx';
 
 export default function Sidebar({ activeSlug, onNavigate }) {
-  const { docs } = useDocs();
+  const { docs, chosen } = useDocs();
   const ref = useRef(null);
 
   // Cuộn mục đang chọn vào vùng nhìn thấy
@@ -17,7 +17,8 @@ export default function Sidebar({ activeSlug, onNavigate }) {
   return (
     <aside className="sidebar" ref={ref}>
       <nav>
-        {docs.sections.map((s) => {
+        {!chosen && <div className="nav-section"><div className="nav-section-title">Chọn vai trò để xem menu hướng dẫn</div></div>}
+        {chosen && docs.sections.map((s) => {
           const pages = s.pages.filter((p) => !p.hidden);
           if (!pages.length) return null;
           return (

@@ -18,6 +18,8 @@ updated: 2026-11-03
 Hệ thống ghi nhận thời gian điểm danh thực tế và cập nhật trạng thái tham gia.
 :::
 
+:::hidden
 :::tip
 Nếu cuộc họp yêu cầu [điểm danh bằng NFC](/docs/yeu-cau-diem-danh-nfc), chọn hình thức **“Trực tiếp (Offline)”** và quét NFC tại phòng họp.
+:::
 :::

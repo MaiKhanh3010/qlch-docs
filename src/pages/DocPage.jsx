@@ -10,10 +10,18 @@ import { IconCopy, IconLink } from '../components/Icons.jsx';
 import NotFound from './NotFound.jsx';
 
 export default function DocPage({ slug, hash, onImage }) {
-  const { docs, flat } = useDocs();
+  const { docs, flat, role, chosen, roleOf, setRole } = useDocs();
   const idx = flat.findIndex((x) => x.page.slug === slug);
   const entry = flat[idx];
   const rendered = useMemo(() => (entry ? render(entry.page.content) : null), [entry]);
+
+  // Trang thuộc vai trò khác (vd. mở liên kết được chia sẻ) -> tự chuyển sang vai trò đó.
+  // Mở trang khi chưa chọn vai trò -> ghi nhận vai trò hiện tại để lần sau không hỏi lại.
+  const otherRole = entry ? null : roleOf(slug);
+  useEffect(() => {
+    if (otherRole && otherRole !== role) setRole(otherRole);
+    else if (entry && !chosen) setRole(role);
+  }, [otherRole, role, entry, chosen, setRole]);
 
   useEffect(() => {
     if (!entry) return;
@@ -28,7 +36,7 @@ export default function DocPage({ slug, hash, onImage }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
-  if (!entry) return <NotFound />;
+  if (!entry) return otherRole ? null : <NotFound />;
   const { page, section } = entry;
   const prev = flat[idx - 1];
   const next = flat[idx + 1];

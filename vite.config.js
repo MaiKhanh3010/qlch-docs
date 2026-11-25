@@ -3,30 +3,35 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { parseFrontmatter } from './src/lib/frontmatter.js';
+import { parseFrontmatter, isHiddenPage, stripHidden } from './src/lib/frontmatter.js';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const CONTENT = path.join(ROOT, 'content');
 
 /**
- * Các bộ tài liệu tách riêng (mỗi bộ có site.json + nav.json trong content/guides/<id>/,
- * dùng chung các trang trong content/pages/). Build: vite build --mode <mode>
+ * Bản hướng dẫn theo vai trò (người dùng chọn trên trang chủ): mỗi bản có nav.json riêng
+ * trong content/guides/<id>/, dùng chung các trang trong content/pages/.
  */
-const GUIDES = {
-  onenova: { dir: 'nguoi-tham-gia', outDir: 'dist-onenova', fileName: 'huong-dan-nguoi-tham-gia-onenova.html' },
-};
-const guideDir = (guide) => (guide ? path.join(CONTENT, 'guides', guide.dir) : CONTENT);
+const ROLE_GUIDES = ['nguoi-tham-gia'];
+const readJson = (...p) => JSON.parse(fs.readFileSync(path.join(CONTENT, ...p), 'utf8'));
 
 /** Đọc toàn bộ nội dung để kiểm tra và tạo trang tĩnh */
-function readContent(guide) {
-  const nav = JSON.parse(fs.readFileSync(path.join(guideDir(guide), 'nav.json'), 'utf8'));
-  const site = JSON.parse(fs.readFileSync(path.join(guideDir(guide), 'site.json'), 'utf8'));
+function readContent() {
+  const nav = readJson('nav.json');
+  const site = readJson('site.json');
+  const guideNavs = ROLE_GUIDES.map((g) => readJson('guides', g, 'nav.json'));
   const pages = {};
+  const hidden = new Set(); // trang có `hidden: true` – tạm ẩn
   for (const f of fs.readdirSync(path.join(CONTENT, 'pages'))) {
     if (!f.endsWith('.md')) continue;
-    pages[f.slice(0, -3)] = parseFrontmatter(fs.readFileSync(path.join(CONTENT, 'pages', f), 'utf8'));
+    const p = parseFrontmatter(fs.readFileSync(path.join(CONTENT, 'pages', f), 'utf8'));
+    if (isHiddenPage(p.data)) { hidden.add(f.slice(0, -3)); continue; }
+    pages[f.slice(0, -3)] = { data: p.data, body: stripHidden(p.body) };
   }
-  return { nav, site, pages };
+  // Mọi trang (đang hiển thị) có trong menu của ít nhất một vai trò
+  const allSlugs = [...new Set([nav, ...guideNavs].flatMap((n) => n.sections.flatMap((s) => s.pages)))]
+    .filter((slug) => !hidden.has(slug));
+  return { nav, site, guideNavs, pages, hidden, allSlugs };
 }
 
 /**
@@ -36,25 +41,32 @@ function readContent(guide) {
  *  - liên kết /docs/... và ảnh /uploads/... phải tồn tại (cảnh báo)
  */
 function checkContent() {
-  const { nav, pages } = readContent();
+  const { nav, guideNavs, pages, hidden, allSlugs } = readContent();
   const errors = [];
   const warnings = [];
-  const inNav = new Set();
-  // Trang chỉ dùng trong bộ tài liệu tách riêng thì không cảnh báo
-  const inGuides = new Set(Object.values(GUIDES).flatMap((g) => readContent(g).nav.sections.flatMap((s) => s.pages)));
-  for (const s of nav.sections) {
-    for (const slug of s.pages) {
-      if (inNav.has(slug)) errors.push(`nav.json: trang "${slug}" bị khai báo 2 lần`);
-      inNav.add(slug);
-      if (!pages[slug]) errors.push(`nav.json: không tìm thấy file content/pages/${slug}.md`);
+  const inAny = new Set(allSlugs);
+  [nav, ...guideNavs].forEach((n, i) => {
+    const file = i === 0 ? 'nav.json' : `guides/${ROLE_GUIDES[i - 1]}/nav.json`;
+    const seen = new Set();
+    for (const s of n.sections) {
+      for (const slug of s.pages) {
+        if (seen.has(slug)) errors.push(`${file}: trang "${slug}" bị khai báo 2 lần`);
+        seen.add(slug);
+        if (!pages[slug] && !hidden.has(slug)) errors.push(`${file}: không tìm thấy file content/pages/${slug}.md`);
+      }
     }
-  }
+  });
   for (const [slug, { data, body }] of Object.entries(pages)) {
-    if (!inNav.has(slug) && !inGuides.has(slug)) warnings.push(`content/pages/${slug}.md chưa được thêm vào nav.json nên sẽ không hiển thị`);
+    if (!inAny.has(slug)) warnings.push(`content/pages/${slug}.md chưa được thêm vào nav.json nên sẽ không hiển thị`);
     if (!data.title) warnings.push(`${slug}.md: thiếu "title"`);
     for (const m of body.matchAll(/\]\((\/[^)\s#"]+)/g)) {
       const url = decodeURI(m[1]);
-      if (url.startsWith('/docs/') && !pages[url.slice(6).replace(/\/$/, '')]) warnings.push(`${slug}.md: liên kết hỏng ${url}`);
+      const target = url.slice(6).replace(/\/$/, '');
+      if (url.startsWith('/docs/') && !pages[target]) {
+        warnings.push(hidden.has(target)
+          ? `${slug}.md: liên kết tới trang đang ẩn ${url} (sẽ chỉ hiện chữ – nên bọc trong :::hidden)`
+          : `${slug}.md: liên kết hỏng ${url}`);
+      }
       if (url.startsWith('/uploads/') && !fs.existsSync(path.join(ROOT, 'public', url))) warnings.push(`${slug}.md: thiếu ảnh public${url}`);
     }
   }
@@ -83,25 +95,43 @@ function contentPlugin() {
     /** Tạo sẵn file HTML cho từng trang (/docs/<slug>/index.html) để chạy được trên mọi web server tĩnh */
     closeBundle() {
       if (!outDir || !fs.existsSync(path.join(outDir, 'index.html'))) return;
-      const { nav, site, pages } = readContent();
+      const { site, pages, allSlugs } = readContent();
       const base = fs.readFileSync(path.join(outDir, 'index.html'), 'utf8');
       const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
       const withMeta = (title, desc) => base
         .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>${desc ? `\n  <meta name="description" content="${esc(desc)}">` : ''}`);
       fs.writeFileSync(path.join(outDir, 'index.html'), withMeta(site.title, site.homeSubtitle && site.homeSubtitle.replace(/\*\*/g, '')));
       let n = 0;
-      for (const s of nav.sections) {
-        for (const slug of s.pages) {
-          const p = pages[slug];
-          if (!p) continue;
-          const dir = path.join(outDir, 'docs', slug);
-          fs.mkdirSync(dir, { recursive: true });
-          fs.writeFileSync(path.join(dir, 'index.html'), withMeta(`${p.data.title} · ${site.title}`, p.data.description));
-          n++;
-        }
+      for (const slug of allSlugs) {
+        const p = pages[slug];
+        if (!p) continue;
+        const dir = path.join(outDir, 'docs', slug);
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, 'index.html'), withMeta(`${p.data.title} · ${site.title}`, p.data.description));
+        n++;
       }
       fs.writeFileSync(path.join(outDir, '404.html'), withMeta(`Không tìm thấy trang · ${site.title}`));
       console.log(`\n  ✔ Đã tạo ${n} trang tĩnh trong ${path.relative(ROOT, outDir)}/docs/`);
+    },
+  };
+}
+
+/**
+ * Khi nạp file Markdown (?raw): bỏ hẳn nội dung tạm ẩn để không bị đóng gói vào bản build
+ *  - trang `hidden: true` -> chỉ còn phần đầu đánh dấu ẩn
+ *  - khối :::hidden … ::: -> bị xoá
+ */
+function hiddenContentPlugin() {
+  return {
+    name: 'qlch-hidden-content',
+    enforce: 'pre',
+    load(id) {
+      const [file, query] = id.split('?');
+      if (query !== 'raw' || !file.endsWith('.md') || !path.resolve(file).startsWith(path.join(CONTENT, 'pages'))) return null;
+      const text = fs.readFileSync(file, 'utf8');
+      const { data } = parseFrontmatter(text);
+      const out = isHiddenPage(data) ? '---\nhidden: true\n---\n' : stripHidden(text.replace(/\r\n?/g, '\n'));
+      return `export default ${JSON.stringify(out)};`;
     },
   };
 }
@@ -113,7 +143,7 @@ const dataUri = (file) => `data:${MIME[path.extname(file).slice(1).toLowerCase()
  * Module ảo "virtual:inline-assets": bảng /uploads/... -> data URI.
  * Chỉ có dữ liệu khi build 1 file (chỉ nhúng ảnh thực sự được dùng trong nội dung + logo).
  */
-function inlineAssetsPlugin(single, guide) {
+function inlineAssetsPlugin(single) {
   const ID = 'virtual:inline-assets';
   return {
     name: 'qlch-inline-assets',
@@ -121,11 +151,9 @@ function inlineAssetsPlugin(single, guide) {
     load(id) {
       if (id !== '\0' + ID) return null;
       if (!single) return 'export default {};';
-      const { site, nav, pages } = readContent(guide);
+      const { site, pages } = readContent();
       const used = new Set(site.logo ? [site.logo] : []);
-      // Bản tách riêng: chỉ nhúng ảnh của các trang có trong menu của bộ đó
-      const list = guide ? nav.sections.flatMap((s) => s.pages).map((slug) => pages[slug]).filter(Boolean) : Object.values(pages);
-      for (const { body } of list) {
+      for (const { body } of Object.values(pages)) {
         for (const m of body.matchAll(/\((\/uploads\/[^)\s"]+)/g)) used.add(decodeURI(m[1]));
       }
       const map = {};
@@ -139,7 +167,7 @@ function inlineAssetsPlugin(single, guide) {
 }
 
 /** Sau khi build 1 file: gộp CSS + JS + favicon vào index.html, xuất ra 1 file HTML duy nhất */
-function singleFilePlugin(outDir, fileName, guide) {
+function singleFilePlugin(outDir, fileName) {
   return {
     name: 'qlch-single-file',
     apply: 'build',
@@ -152,7 +180,7 @@ function singleFilePlugin(outDir, fileName, guide) {
         throw new Error(`${path.relative(ROOT, indexFile)} không có script (${html.length} ký tự) – bản build bị lỗi`);
       }
       const read = (href) => fs.readFileSync(path.join(dir, href.replace(/^\.?\//, '')), 'utf8');
-      const { site } = readContent(guide);
+      const { site } = readContent();
 
       html = html.replace(/<link rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g, (_, href) => `<style>\n${read(href)}\n</style>`);
       html = html.replace(/<script type="module"[^>]*src="([^"]+)"[^>]*><\/script>/g,
@@ -172,18 +200,15 @@ function singleFilePlugin(outDir, fileName, guide) {
 }
 
 export default defineConfig(({ mode }) => {
-  const guide = GUIDES[mode];
-  const single = mode === 'single' || !!guide;
-  const singleOut = guide ? guide.outDir : 'dist-single';
-  const gdir = guide && guideDir(guide).replace(/\\/g, '/');
+  const single = mode === 'single';
+  const singleOut = 'dist-single';
   return {
     define: { __SINGLE_FILE__: JSON.stringify(single) },
-    // Bản tách riêng: thay content/site.json và content/nav.json bằng cấu hình của bộ đó
-    ...(guide && { resolve: { alias: [{ find: /^.*\/content\/(site|nav)\.json$/, replacement: `${gdir}/$1.json` }] } }),
     plugins: [
       react(),
-      inlineAssetsPlugin(single, guide),
-      single ? singleFilePlugin(singleOut, guide ? guide.fileName : 'huong-dan-qlch.html', guide) : contentPlugin(),
+      hiddenContentPlugin(),
+      inlineAssetsPlugin(single),
+      single ? singleFilePlugin(singleOut, 'huong-dan-qlch.html') : contentPlugin(),
     ],
     server: { port: 5173, host: true },
     preview: { port: 4173, host: true },

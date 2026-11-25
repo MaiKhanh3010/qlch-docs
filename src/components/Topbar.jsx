@@ -1,12 +1,15 @@
-import { Link } from '../lib/router.jsx';
+import { Link, navigate } from '../lib/router.jsx';
 import { useDocs } from '../lib/docs-context.jsx';
 import { IconMenu, IconSearch } from './Icons.jsx';
 import ThemeToggle from './ThemeToggle.jsx';
 import { assetUrl } from '../lib/mode.js';
 
 export default function Topbar({ onMenu, onSearch }) {
-  const { docs } = useDocs();
+  const { docs, roles, role, chosen, setRole } = useDocs();
   const site = (docs && docs.site) || {};
+  const current = roles.find((r) => r.id === role);
+  // Đổi vai trò: quay về trang chủ và hiện màn hình chọn
+  const changeRole = () => { setRole(null); navigate('/'); };
   return (
     <header className="topbar">
       <button className="icon-btn menu-btn" onClick={onMenu} aria-label="Mở menu"><IconMenu /></button>
@@ -18,6 +21,11 @@ export default function Topbar({ onMenu, onSearch }) {
         <IconSearch /><span>Tìm kiếm tài liệu…</span><kbd>Ctrl K</kbd>
       </button>
       <div className="topbar-right">
+        {chosen && current && (
+          <button type="button" className="role-switch" onClick={changeRole} title="Đổi vai trò">
+            <span className="role-switch-label">Vai trò:</span> {current.label} <span aria-hidden="true">⇄</span>
+          </button>
+        )}
         <ThemeToggle />
       </div>
     </header>

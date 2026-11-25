@@ -17,7 +17,7 @@ Tài liệu này hướng dẫn từng thao tác theo đúng trình tự diễn 
 
 ## Đối tượng áp dụng
 
-Tài liệu dành cho tất cả cán bộ, nhân viên **được mời tham gia cuộc họp** và sử dụng One Nova để tham dự. Các chức năng dành cho người mời họp, thư ký cuộc họp và người chủ trì được hướng dẫn trong tài liệu QLCH đầy đủ.
+Tài liệu dành cho tất cả cán bộ, nhân viên **được mời tham gia cuộc họp** và sử dụng One Nova để tham dự. Các chức năng dành cho người mời họp, thư ký cuộc họp và người chủ trì được hướng dẫn ở vai trò **“Người mời họp”** – nhấn nút **“Vai trò”** trên thanh tiêu đề để chuyển.
 
 ## Chuẩn bị trước khi sử dụng
 
@@ -25,7 +25,9 @@ Tài liệu dành cho tất cả cán bộ, nhân viên **được mời tham gi
 1. Cài đặt ứng dụng **One Nova** và đăng nhập bằng tài khoản được cấp.
 2. Cho phép One Nova **gửi thông báo** để nhận kịp thời thông tin cuộc họp mới, cập nhật, huỷ và nhắc họp.
 3. Đảm bảo **camera** của thiết bị hoạt động bình thường để điểm danh bằng xác thực khuôn mặt (**Face ID**).
+:::hidden
 4. Với cuộc họp yêu cầu điểm danh bằng **NFC**: có mặt tại phòng họp và dùng thiết bị hỗ trợ NFC để quét.
+:::
 :::
 
 ## Hành trình của người tham gia

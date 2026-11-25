@@ -51,6 +51,13 @@ Quy ước:
 | `:::note [tiêu đề]` / `:::tip` / `:::warning` / `:::info` / `:::success` | Khung thông báo |
 | `:::cards` + `- [Tên](/docs/slug) Mô tả` | Lưới thẻ liên kết |
 | `:::columns` … `+++` … `:::` | Chia cột |
+| `:::hidden` … `:::` | Tạm ẩn đoạn nội dung (không hiển thị, không tìm kiếm được); xoá 2 dòng bao để hiện lại |
+
+## Tạm ẩn cả trang
+
+Thêm `hidden: true` vào phần đầu file `.md` (vẫn giữ trang trong `nav.json`). Trang sẽ không có trên menu, trang chủ, tìm kiếm; liên kết tới trang chỉ còn hiện chữ. Xoá dòng này để hiện lại.
+
+Đang tạm ẩn vì **NFC chưa triển khai**: trang `yeu-cau-diem-danh-nfc` và các khối `:::hidden` trong `diem-danh-vao-hop`, `mo-dau-nguoi-tham-gia`, `tong-ket-nguoi-tham-gia`.
 
 ## Nhóm trên menu (`content/nav.json`)
 

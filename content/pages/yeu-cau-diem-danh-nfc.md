@@ -2,6 +2,7 @@
 title: "Yêu cầu điểm danh bằng NFC"
 description: "Kích hoạt điểm danh bằng NFC để kiểm soát vị trí, đảm bảo người tham gia điểm danh trực tiếp tại phòng họp được cấu hình NFC."
 updated: 2026-11-03
+hidden: true
 ---
 
 ![Công tắc “Điểm danh bằng NFC”](/uploads/yeu-cau-diem-danh-nfc/man-hinh.png "Công tắc “Điểm danh bằng NFC”")
